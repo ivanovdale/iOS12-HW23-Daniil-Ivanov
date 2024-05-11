@@ -11,6 +11,7 @@
 		00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07AB2BEF97B100C8EF16 /* ContentView.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
 		00AC07B12BEF97B200C8EF16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */; };
+		00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		00AC07AB2BEF97B100C8EF16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,8 @@
 		00AC07A82BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
 				00AC07B92BEF9B0E00C8EF16 /* App */,
+				00AC07BA2BEF9B1400C8EF16 /* View */,
 				00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */,
 				00AC07AF2BEF97B200C8EF16 /* Preview Content */,
 			);
@@ -73,6 +75,15 @@
 				00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		00AC07BA2BEF9B1400C8EF16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
+				00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */,
+				00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */,
+				00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
