@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00AC07AA2BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */; };
+		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
 		00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07AB2BEF97B100C8EF16 /* ContentView.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
 		00AC07B12BEF97B200C8EF16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		00AC07A62BEF97B100C8EF16 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS12_HW23_Daniil_IvanovApp.swift; sourceTree = "<group>"; };
+		00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicApp.swift; sourceTree = "<group>"; };
 		00AC07AB2BEF97B100C8EF16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,8 +51,8 @@
 		00AC07A82BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */,
 				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
+				00AC07B92BEF9B0E00C8EF16 /* App */,
 				00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */,
 				00AC07AF2BEF97B200C8EF16 /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00AC07B92BEF9B0E00C8EF16 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */,
-				00AC07AA2BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
