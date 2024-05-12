@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        AppTabView()
+        GeometryReader { geometry in
+            AppTabView()
+                .safeAreaInset(edge: .bottom) {
+                    PlayerView(height: geometry.size.height * 0.1,
+                               offset: 50)
+                }
+        }
     }
 }
