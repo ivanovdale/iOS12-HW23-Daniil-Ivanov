@@ -29,18 +29,23 @@ struct PlayerView: View {
 
             Spacer()
 
-            Image(systemName: "play.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(height: controlHeight)
-                .padding(.trailing, 24)
+            Button(action: {}, label: {
+                Image(systemName: "play.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: controlHeight)
+                    .foregroundStyle(.black)
+                    .padding(.trailing, 24)
+            })
 
-            Image(systemName: "forward.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(height: controlHeight)
-                .foregroundStyle(.gray)
-                .padding(.trailing, 16)
+            Button(action: {}, label: {
+                Image(systemName: "forward.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: controlHeight)
+                    .foregroundStyle(.gray)
+                    .padding(.trailing, 16)
+            })
         }
         .background(Color(UIColor.systemGray6))
         .frame(height: stackHeight)
