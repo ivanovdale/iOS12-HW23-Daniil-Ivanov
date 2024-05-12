@@ -42,7 +42,7 @@ struct PlayerView: View {
                 .foregroundStyle(.gray)
                 .padding(.trailing, 16)
         }
-        .background(.gray.opacity(0.1))
+        .background(Color(UIColor.systemGray6))
         .frame(height: stackHeight)
         .offset(y: -offset)
     }
