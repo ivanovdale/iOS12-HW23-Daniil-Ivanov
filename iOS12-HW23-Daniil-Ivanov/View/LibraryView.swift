@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct LibraryView: View {
+    init(){
+        UINavigationBar.setAnimationsEnabled(false)
+    }
+
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
@@ -22,6 +26,10 @@ struct LibraryView: View {
                         .multilineTextAlignment(.center)
                 }
                 .navigationTitle("Медиатека")
+                .toolbar {
+                    NavigationLink("Править", destination: CategoryListView())
+                        .foregroundStyle(.red)
+                }
             }
         }
     }
