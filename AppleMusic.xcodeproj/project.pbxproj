@@ -13,6 +13,7 @@
 		00AC07B12BEF97B200C8EF16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */; };
 		00AC07B82BEF9A8200C8EF16 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */; };
 		00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */; };
+		00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
 				00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */,
 				00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */,
+				00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */,
 				00AC07B82BEF9A8200C8EF16 /* LibraryView.swift in Sources */,
 				00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */,
+				00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */,
 				00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
