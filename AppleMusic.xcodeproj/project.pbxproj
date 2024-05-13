@@ -18,6 +18,7 @@
 		00AC07C32BF125E100C8EF16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C22BF125E100C8EF16 /* Category.swift */; };
 		00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */; };
 		00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C72BF14B4E00C8EF16 /* Song.swift */; };
+		00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07E62BF22C2800C8EF16 /* AlbumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		00AC07C22BF125E100C8EF16 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Ext.swift"; sourceTree = "<group>"; };
 		00AC07C72BF14B4E00C8EF16 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		00AC07E62BF22C2800C8EF16 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,8 @@
 				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
 				00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */,
 				00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */,
-				00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */,
 				00AC07BF2BF11C5000C8EF16 /* CategoryListView.swift */,
+				00AC07E52BF22C1300C8EF16 /* PlayerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +120,15 @@
 				00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		00AC07E52BF22C1300C8EF16 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */,
+				00AC07E62BF22C2800C8EF16 /* AlbumView.swift */,
+			);
+			path = PlayerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */,
 				00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */,
 				00AC07C32BF125E100C8EF16 /* Category.swift in Sources */,
+				00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */,
 				00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

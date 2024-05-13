@@ -64,38 +64,3 @@ struct PlayerView: View {
         .offset(y: -offset)
     }
 }
-
-struct AlbumView: View {
-    let width: CGFloat
-    let height: CGFloat
-    let imageName: String?
-
-    var body: some View {
-        Group {
-            let shadowColor = Color.gray.opacity(0.5)
-
-            if let imageName {
-                // Album image
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: width, height: height)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: shadowColor, radius: 4, x: 0, y: 3)
-            } else {
-                // Placeholder image
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(UIColor.systemGray5))
-                        .frame(width: width, height: height)
-                        .shadow(color: shadowColor, radius: 4, x: 0, y: 3)
-                    Image(systemName: "music.note")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: width * 0.6, height: height * 0.6)
-                        .foregroundStyle(Color(UIColor.systemGray3))
-                }
-            }
-        }
-    }
-}
