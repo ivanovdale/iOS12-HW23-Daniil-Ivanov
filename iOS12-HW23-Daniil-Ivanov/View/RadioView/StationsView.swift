@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StationsView : View {
     let imageSize: CGFloat
+    let stations: [RadioStation]
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,18 +18,18 @@ struct StationsView : View {
                 .fontWeight(.bold)
 
             LazyVStack(alignment: .leading) {
-                ForEach(0..<5) {_ in
+                ForEach(stations) { station in
                     HStack(spacing: RadioView.Metric.padding) {
-                        Image("Cover2")
+                        Image(station.imageName)
                             .resizable()
                             .frame(width: imageSize, height: imageSize)
                             .scaledToFill()
                             .clipShape(RoundedRectangle(cornerRadius: 3))
 
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Популярное")
+                            Text(station.name)
 
-                            Text("То, что слушают прямо сейчас.")
+                            Text(station.shortSummary)
                                 .font(.callout)
                                 .foregroundStyle(.gray)
                                 .lineLimit(1)

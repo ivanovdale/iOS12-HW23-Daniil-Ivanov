@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RadioView: View {
     private let radioShows = RadioShow.examples
+    private let radioStations = RadioStation.examples
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +25,8 @@ struct RadioView: View {
                     Divider()
                         .padding([.horizontal, .top], Metric.padding)
 
-                    StationsView(imageSize: geometry.size.height * 0.15)
+                    StationsView(imageSize: geometry.size.height * 0.15,
+                                 stations: radioStations)
                         .padding([.horizontal, .top], Metric.padding)
                 }
                 .navigationTitle("Радио")
