@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct iOS12_HW23_Daniil_IvanovApp: App {
+struct AppleMusicApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00AC07AA2BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */; };
+		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
 		00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07AB2BEF97B100C8EF16 /* ContentView.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
 		00AC07B12BEF97B200C8EF16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */; };
+		00AC07B82BEF9A8200C8EF16 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */; };
+		00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */; };
+		00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */; };
+		00AC07C02BF11C5000C8EF16 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BF2BF11C5000C8EF16 /* CategoryListView.swift */; };
+		00AC07C32BF125E100C8EF16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C22BF125E100C8EF16 /* Category.swift */; };
+		00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */; };
+		00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C72BF14B4E00C8EF16 /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00AC07A62BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS12-HW23-Daniil-Ivanov.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS12_HW23_Daniil_IvanovApp.swift; sourceTree = "<group>"; };
+		00AC07A62BEF97B100C8EF16 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicApp.swift; sourceTree = "<group>"; };
 		00AC07AB2BEF97B100C8EF16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00AC07B02BEF97B200C8EF16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		00AC07BF2BF11C5000C8EF16 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		00AC07C22BF125E100C8EF16 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Ext.swift"; sourceTree = "<group>"; };
+		00AC07C72BF14B4E00C8EF16 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +57,7 @@
 		00AC07A72BEF97B100C8EF16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07A62BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov.app */,
+				00AC07A62BEF97B100C8EF16 /* AppleMusic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +65,10 @@
 		00AC07A82BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07A92BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift */,
-				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
+				00AC07B92BEF9B0E00C8EF16 /* App */,
+				00AC07BA2BEF9B1400C8EF16 /* View */,
+				00AC07C12BF125D700C8EF16 /* Model */,
+				00AC07C42BF126A600C8EF16 /* Extensions */,
 				00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */,
 				00AC07AF2BEF97B200C8EF16 /* Preview Content */,
 			);
@@ -67,12 +83,49 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		00AC07B92BEF9B0E00C8EF16 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		00AC07BA2BEF9B1400C8EF16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07AB2BEF97B100C8EF16 /* ContentView.swift */,
+				00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */,
+				00AC07B72BEF9A8200C8EF16 /* LibraryView.swift */,
+				00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */,
+				00AC07BF2BF11C5000C8EF16 /* CategoryListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00AC07C12BF125D700C8EF16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07C22BF125E100C8EF16 /* Category.swift */,
+				00AC07C72BF14B4E00C8EF16 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00AC07C42BF126A600C8EF16 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00AC07A52BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov */ = {
+		00AC07A52BEF97B100C8EF16 /* AppleMusic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00AC07B42BEF97B200C8EF16 /* Build configuration list for PBXNativeTarget "iOS12-HW23-Daniil-Ivanov" */;
+			buildConfigurationList = 00AC07B42BEF97B200C8EF16 /* Build configuration list for PBXNativeTarget "AppleMusic" */;
 			buildPhases = (
 				00AC07A22BEF97B100C8EF16 /* Sources */,
 				00AC07A32BEF97B100C8EF16 /* Frameworks */,
@@ -82,9 +135,9 @@
 			);
 			dependencies = (
 			);
-			name = "iOS12-HW23-Daniil-Ivanov";
+			name = AppleMusic;
 			productName = "iOS12-HW23-Daniil-Ivanov";
-			productReference = 00AC07A62BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov.app */;
+			productReference = 00AC07A62BEF97B100C8EF16 /* AppleMusic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00AC07A12BEF97B100C8EF16 /* Build configuration list for PBXProject "iOS12-HW23-Daniil-Ivanov" */;
+			buildConfigurationList = 00AC07A12BEF97B100C8EF16 /* Build configuration list for PBXProject "AppleMusic" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00AC07A52BEF97B100C8EF16 /* iOS12-HW23-Daniil-Ivanov */,
+				00AC07A52BEF97B100C8EF16 /* AppleMusic */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */,
+				00AC07C02BF11C5000C8EF16 /* CategoryListView.swift in Sources */,
 				00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */,
-				00AC07AA2BEF97B100C8EF16 /* iOS12_HW23_Daniil_IvanovApp.swift in Sources */,
+				00AC07B82BEF9A8200C8EF16 /* LibraryView.swift in Sources */,
+				00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */,
+				00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */,
+				00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */,
+				00AC07C32BF125E100C8EF16 /* Category.swift in Sources */,
+				00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +338,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +347,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.iOS12-HW23-Daniil-Ivanov";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,8 +371,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,16 +380,20 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.iOS12-HW23-Daniil-Ivanov";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00AC07A12BEF97B100C8EF16 /* Build configuration list for PBXProject "iOS12-HW23-Daniil-Ivanov" */ = {
+		00AC07A12BEF97B100C8EF16 /* Build configuration list for PBXProject "AppleMusic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00AC07B22BEF97B200C8EF16 /* Debug */,
@@ -334,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00AC07B42BEF97B200C8EF16 /* Build configuration list for PBXNativeTarget "iOS12-HW23-Daniil-Ivanov" */ = {
+		00AC07B42BEF97B200C8EF16 /* Build configuration list for PBXNativeTarget "AppleMusic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00AC07B52BEF97B200C8EF16 /* Debug */,
