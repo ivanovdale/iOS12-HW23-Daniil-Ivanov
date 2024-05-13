@@ -28,6 +28,8 @@ struct RadioView: View {
                     StationsView(imageSize: geometry.size.height * 0.15,
                                  stations: radioStations)
                         .padding([.horizontal, .top], Metric.padding)
+
+                    Color.clear.frame(height: geometry.size.height * 0.15)
                 }
                 .navigationTitle("Радио")
             }

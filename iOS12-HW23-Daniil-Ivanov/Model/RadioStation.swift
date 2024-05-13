@@ -14,6 +14,12 @@ struct RadioStation: Identifiable {
     let imageName: String
 }
 
+extension RadioStation: Equatable {
+    static func ==(lhs: RadioStation, rhs: RadioStation) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 extension RadioStation {
     static let examples = [RadioStation(name: "Популярное",
                                         shortSummary: "То, что слушают прямо сейчас.",

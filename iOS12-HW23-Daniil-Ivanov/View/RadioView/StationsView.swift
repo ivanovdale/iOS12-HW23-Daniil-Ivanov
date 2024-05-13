@@ -36,9 +36,11 @@ struct StationsView : View {
                         }
                     }
 
-                    Divider()
-                        .padding(.vertical, RadioView.Metric.padding / 2)
-                        .padding(.leading, imageSize + RadioView.Metric.padding)
+                    if (station != stations.last) {
+                        Divider()
+                            .padding(.vertical, RadioView.Metric.padding / 2)
+                            .padding(.leading, imageSize + RadioView.Metric.padding)
+                    }
                 }
             }
         }
