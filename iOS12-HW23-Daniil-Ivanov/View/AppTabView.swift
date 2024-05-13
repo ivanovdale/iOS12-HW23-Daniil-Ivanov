@@ -63,10 +63,9 @@ extension Tab {
     @ViewBuilder
     var content: some View {
         switch self {
-        case .mediaLibrary:
-            LibraryView()
-        case .radio, .search:
-            Text(self.title)
+        case .mediaLibrary: LibraryView()
+        case .radio: RadioView()
+        case .search: Text(self.title)
         }
     }
 }
