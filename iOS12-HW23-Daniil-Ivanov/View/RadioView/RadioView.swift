@@ -19,7 +19,10 @@ struct RadioView: View {
                                    contentWidth: geometry.size.width)
 
                     Divider()
-                        .padding(Metric.padding)
+                        .padding([.horizontal, .top], Metric.padding)
+
+                    StationsView(imageSize: geometry.size.height * 0.15)
+                        .padding([.horizontal, .top], Metric.padding)
                 }
                 .navigationTitle("Радио")
             }

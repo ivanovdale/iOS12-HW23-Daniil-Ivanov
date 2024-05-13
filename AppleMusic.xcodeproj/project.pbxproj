@@ -21,6 +21,7 @@
 		00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07E62BF22C2800C8EF16 /* AlbumView.swift */; };
 		00AC07EA2BF22CD400C8EF16 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07E92BF22CD400C8EF16 /* RadioView.swift */; };
 		00AC07ED2BF26A9E00C8EF16 /* RadioShowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07EC2BF26A9E00C8EF16 /* RadioShowsView.swift */; };
+		00AC07EF2BF26FFF00C8EF16 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07EE2BF26FFF00C8EF16 /* StationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		00AC07E62BF22C2800C8EF16 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		00AC07E92BF22CD400C8EF16 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		00AC07EC2BF26A9E00C8EF16 /* RadioShowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioShowsView.swift; sourceTree = "<group>"; };
+		00AC07EE2BF26FFF00C8EF16 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				00AC07E92BF22CD400C8EF16 /* RadioView.swift */,
 				00AC07EC2BF26A9E00C8EF16 /* RadioShowsView.swift */,
+				00AC07EE2BF26FFF00C8EF16 /* StationsView.swift */,
 			);
 			path = RadioView;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				00AC07EA2BF22CD400C8EF16 /* RadioView.swift in Sources */,
 				00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */,
 				00AC07C02BF11C5000C8EF16 /* CategoryListView.swift in Sources */,
+				00AC07EF2BF26FFF00C8EF16 /* StationsView.swift in Sources */,
 				00AC07AC2BEF97B100C8EF16 /* ContentView.swift in Sources */,
 				00AC07B82BEF9A8200C8EF16 /* LibraryView.swift in Sources */,
 				00AC07ED2BF26A9E00C8EF16 /* RadioShowsView.swift in Sources */,
