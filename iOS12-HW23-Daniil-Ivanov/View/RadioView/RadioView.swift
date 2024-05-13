@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RadioView: View {
+    private let radioShows = RadioShow.examples
+
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
@@ -16,7 +18,8 @@ struct RadioView: View {
                         .padding(Metric.padding)
 
                     RadioShowsView(height: geometry.size.height * 0.4,
-                                   contentWidth: geometry.size.width)
+                                   contentWidth: geometry.size.width,
+                                   radioShows: radioShows)
 
                     Divider()
                         .padding([.horizontal, .top], Metric.padding)
