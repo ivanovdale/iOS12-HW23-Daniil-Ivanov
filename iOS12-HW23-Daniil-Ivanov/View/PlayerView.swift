@@ -11,26 +11,35 @@ struct PlayerView: View {
     let height: CGFloat
     let offset: CGFloat
 
+    @State private var song: Song? = Song.example
+    @State private var isPlaying = false
+
     var body: some View {
         let stackHeight = height
         let verticalPadding = 8.0
         let horizontalPadding = 24.0
         let albumViewSize = stackHeight - verticalPadding * 2 - 1
         let controlHeight = stackHeight * 0.22
+        let title = song?.description ?? "Не исполняется"
 
         HStack(spacing: 0) {
-            AlbumView(width: albumViewSize, height: albumViewSize)
+            AlbumView(width: albumViewSize,
+                      height: albumViewSize,
+                      imageName: song?.imageName)
                 .padding(.horizontal, horizontalPadding)
                 .padding(.vertical, verticalPadding)
 
-            Text("Не исполняется")
+            Text(title)
                 .font(.callout)
                 .fontWeight(.light)
 
             Spacer()
 
-            Button(action: {}, label: {
-                Image(systemName: "play.fill")
+            Button(action: {
+                guard song != nil else { return }
+                isPlaying = !isPlaying
+            }, label: {
+                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(height: controlHeight)
@@ -38,12 +47,15 @@ struct PlayerView: View {
                     .padding(.trailing, 24)
             })
 
-            Button(action: {}, label: {
+            Button(action: {
+                song = nil
+                isPlaying = false
+            }, label: {
                 Image(systemName: "forward.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(height: controlHeight)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(song != nil ? .black : .gray)
                     .padding(.trailing, 16)
             })
         }
@@ -56,22 +68,34 @@ struct PlayerView: View {
 struct AlbumView: View {
     let width: CGFloat
     let height: CGFloat
+    let imageName: String?
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.gray
-                    .opacity(0.1)
-                    .shadow(.drop(color: .black,
-                                  radius: 4,
-                                  x: 2,
-                                  y: 2)))
-                .frame(width: width, height: height)
-            Image(systemName: "music.note")
-                .resizable()
-                .scaledToFit()
-                .frame(width: width * 0.6, height: height * 0.6)
-                .foregroundStyle(.gray.opacity(0.4))
+        Group {
+            let shadowColor = Color.gray.opacity(0.5)
+
+            if let imageName {
+                // Album image
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: width, height: height)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: shadowColor, radius: 4, x: 0, y: 3)
+            } else {
+                // Placeholder image
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(UIColor.systemGray5))
+                        .frame(width: width, height: height)
+                        .shadow(color: shadowColor, radius: 4, x: 0, y: 3)
+                    Image(systemName: "music.note")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width * 0.6, height: height * 0.6)
+                        .foregroundStyle(Color(UIColor.systemGray3))
+                }
+            }
         }
     }
 }
