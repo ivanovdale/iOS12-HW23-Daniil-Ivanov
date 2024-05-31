@@ -13,7 +13,7 @@ struct ContentView: View {
             AppTabView()
                 .safeAreaInset(edge: .bottom) {
                     PlayerView(height: geometry.size.height * 0.1,
-                               offset: 48)
+                               offset: 49)
                 }
         }
     }
