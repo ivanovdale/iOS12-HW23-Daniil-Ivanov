@@ -19,6 +19,7 @@ struct AppContentView<Content: AppContent>: View {
 
             Text(content.title)
                 .font(.title2)
+                .lineLimit(1)
 
             if let subtitle = content.subtitle {
                 Text(subtitle)
@@ -35,7 +36,7 @@ struct AppContentView<Content: AppContent>: View {
                     .resizable()
                     .scaledToFill()
                     .frame(height: imageHeight)
-                .clipShape(RoundedRectangle(cornerRadius: 6))
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
                 if let description = content.description {
                     Text(description)
                         .font(.caption)
@@ -51,8 +52,4 @@ struct AppContentView<Content: AppContent>: View {
 
 #Preview {
     AppContentView(content: RadioShow.examples.first!, imageHeight: 300)
-}
-
-#Preview {
-    RadioScreen()
 }
