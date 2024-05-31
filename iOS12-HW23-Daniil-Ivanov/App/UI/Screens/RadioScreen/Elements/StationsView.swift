@@ -20,7 +20,7 @@ struct StationsView : View {
             LazyVStack(alignment: .leading) {
                 ForEach(stations) { station in
                     HStack(spacing: RadioScreen.Metric.padding) {
-                        Image(station.imageName)
+                        Image(station.image)
                             .resizable()
                             .frame(width: imageSize, height: imageSize)
                             .scaledToFill()

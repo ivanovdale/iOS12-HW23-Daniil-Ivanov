@@ -5,35 +5,35 @@
 //  Created by Daniil (work) on 13.05.2024.
 //
 
-import Foundation
+import SwiftUI
 
 struct RadioShow: Identifiable {
     let id = UUID()
     let tag: RadioShowTag
     let name: String
     let shortSummary: String?
-    let imageName: String
+    let image: ImageResource
 }
 
 extension RadioShow {
     static let examples: [RadioShow] = [RadioShow(tag: .new,
                                                   name: "Музыкальное шоу с Вилли Вонкой",
                                                   shortSummary: nil,
-                                                  imageName: "Cover1"),
+                                                  image: .cover1),
                                         RadioShow(tag: .exclusive,
                                                   name: "Музыкальное шоу с Вилли Вонкой",
                                                   shortSummary: "Это то, что точно стоит услышать.",
-                                                  imageName: "Cover2"),
+                                                  image: .cover2),
                                         RadioShow(tag: .favourite,
                                                   name: "Музыкальное шоу с Вилли Вонкой",
                                                   shortSummary: "Это то, что точно стоит услышать.",
-                                                  imageName: "Cover3"),
+                                                  image: .cover3),
                                         RadioShow(tag: .favourite,
                                                   name: "Музыкальное шоу с Вилли Вонкой",
                                                   shortSummary: "Это то, что точно стоит услышать.",
-                                                  imageName: "Cover4"),
+                                                  image: .cover4),
                                         RadioShow(tag: .favourite,
                                                   name: "Музыкальное шоу с Вилли Вонкой",
                                                   shortSummary: "Это то, что точно стоит услышать.",
-                                                  imageName: "Cover5"),]
+                                                  image: .cover5),]
 }

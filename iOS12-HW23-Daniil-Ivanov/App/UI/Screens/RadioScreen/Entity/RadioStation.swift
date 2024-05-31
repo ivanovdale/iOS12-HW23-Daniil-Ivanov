@@ -5,13 +5,13 @@
 //  Created by Daniil (work) on 13.05.2024.
 //
 
-import Foundation
+import SwiftUI
 
 struct RadioStation: Identifiable {
     let id = UUID()
     let name: String
     let shortSummary: String
-    let imageName: String
+    let image: ImageResource
 }
 
 extension RadioStation: Equatable {
@@ -23,17 +23,17 @@ extension RadioStation: Equatable {
 extension RadioStation {
     static let examples = [RadioStation(name: "Популярное",
                                         shortSummary: "То, что слушают прямо сейчас.",
-                                        imageName: "Cover1"),
+                                        image: .cover1),
                            RadioStation(name: "Музыка для расслабления",
                                         shortSummary: "Электронная медитация.",
-                                        imageName: "Cover2"),
+                                        image: .cover2),
                            RadioStation(name: "Классика",
                                         shortSummary: "То, что слушают прямо сейчас.",
-                                        imageName: "Cover3"),
+                                        image: .cover3),
                            RadioStation(name: "Популярное",
                                         shortSummary: "То, что слушают прямо сейчас.",
-                                        imageName: "Cover4"),
+                                        image: .cover4),
                            RadioStation(name: "Популярное",
                                         shortSummary: "То, что слушают прямо сейчас.",
-                                        imageName: "Cover5"),]
+                                        image: .cover5),]
 }

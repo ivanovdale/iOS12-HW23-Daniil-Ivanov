@@ -34,7 +34,7 @@ struct RadioShowsView: View {
                                 .frame(maxHeight: 43)
                         }
 
-                        Image(radioShow.imageName)
+                        Image(radioShow.image)
                             .resizable()
                             .scaledToFill()
                             .frame(width: contentWidth - RadioScreen.Metric.padding * 3,
