@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoryListView: View {
+struct CategoryListScreen: View {
     @Environment(\.dismiss) private var dismiss
     @State private var categories = Category.allCases
     @State private var editMode: EditMode = .active
@@ -48,3 +48,6 @@ struct CategoryListView: View {
     }
 }
 
+#Preview {
+    CategoryListScreen()
+}

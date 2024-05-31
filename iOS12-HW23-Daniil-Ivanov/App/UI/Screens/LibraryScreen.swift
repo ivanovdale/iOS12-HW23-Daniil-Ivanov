@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LibraryView: View {
+struct LibraryScreen: View {
     init(){
         UINavigationBar.setAnimationsEnabled(false)
     }
@@ -27,10 +27,14 @@ struct LibraryView: View {
                 }
                 .navigationTitle("Медиатека")
                 .toolbar {
-                    NavigationLink("Править", destination: CategoryListView())
+                    NavigationLink("Править", destination: CategoryListScreen())
                         .foregroundStyle(.red)
                 }
             }
         }
     }
+}
+
+#Preview {
+    LibraryScreen()
 }

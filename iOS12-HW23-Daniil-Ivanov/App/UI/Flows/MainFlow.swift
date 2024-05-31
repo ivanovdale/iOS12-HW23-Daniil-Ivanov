@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
-//  iOS12-HW23-Daniil-Ivanov
+//  MainFlow.swift
+//  AppleMusic
 //
-//  Created by Daniil (work) on 11.05.2024.
+//  Created by Daniil (work) on 31.05.2024.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainFlow: View {
     var body: some View {
         GeometryReader { geometry in
             AppTabView()
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainFlow()
 }

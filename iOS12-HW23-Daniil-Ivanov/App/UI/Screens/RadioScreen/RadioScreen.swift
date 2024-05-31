@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RadioView: View {
+struct RadioScreen: View {
     private let radioShows = RadioShow.examples
     private let radioStations = RadioStation.examples
 
@@ -43,5 +43,5 @@ struct RadioView: View {
 }
 
 #Preview {
-    ContentView()
+    RadioScreen()
 }

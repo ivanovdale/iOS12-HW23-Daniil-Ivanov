@@ -14,7 +14,7 @@ struct RadioShowsView: View {
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: RadioView.Metric.padding) {
+            LazyHStack(spacing: RadioScreen.Metric.padding) {
                 ForEach(radioShows) { radioShow in
                     VStack(alignment: .leading) {
                         Text(radioShow.tag.rawValue.uppercased())
@@ -37,23 +37,23 @@ struct RadioShowsView: View {
                         Image(radioShow.imageName)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: contentWidth - RadioView.Metric.padding * 3,
+                            .frame(width: contentWidth - RadioScreen.Metric.padding * 3,
                                    height: height * 0.7)
                             .clipShape(RoundedRectangle(cornerRadius: 6))
 
                     }
-                    .frame(width: contentWidth - RadioView.Metric.padding * 3)
+                    .frame(width: contentWidth - RadioScreen.Metric.padding * 3)
                 }
 
-                Color.clear.frame(width: RadioView.Metric.padding / 2)
+                Color.clear.frame(width: RadioScreen.Metric.padding / 2)
 
             }
-            .padding(.leading, RadioView.Metric.padding)
+            .padding(.leading, RadioScreen.Metric.padding)
             .frame(height: height)
         }
     }
 }
 
 #Preview {
-    RadioView()
+    RadioScreen()
 }

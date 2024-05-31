@@ -64,3 +64,7 @@ struct PlayerView: View {
         .offset(y: -offset)
     }
 }
+
+#Preview {
+    MainFlow()
+}

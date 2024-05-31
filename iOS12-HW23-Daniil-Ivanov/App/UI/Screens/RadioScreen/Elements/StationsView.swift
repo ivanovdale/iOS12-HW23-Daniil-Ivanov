@@ -19,7 +19,7 @@ struct StationsView : View {
 
             LazyVStack(alignment: .leading) {
                 ForEach(stations) { station in
-                    HStack(spacing: RadioView.Metric.padding) {
+                    HStack(spacing: RadioScreen.Metric.padding) {
                         Image(station.imageName)
                             .resizable()
                             .frame(width: imageSize, height: imageSize)
@@ -38,11 +38,15 @@ struct StationsView : View {
 
                     if (station != stations.last) {
                         Divider()
-                            .padding(.vertical, RadioView.Metric.padding / 2)
-                            .padding(.leading, imageSize + RadioView.Metric.padding)
+                            .padding(.vertical, RadioScreen.Metric.padding / 2)
+                            .padding(.leading, imageSize + RadioScreen.Metric.padding)
                     }
                 }
             }
         }
     }
+}
+
+#Preview {
+    RadioScreen()
 }
