@@ -16,40 +16,20 @@ struct RadioShowsView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: RadioScreen.Metric.padding) {
                 ForEach(radioShows) { radioShow in
-                    VStack(alignment: .leading) {
-                        Text(radioShow.tag.rawValue.uppercased())
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-
-                        Text("Название шоу Название шоу Название шоу")
-                            .font(.title2)
-
-                        if let shortSummary = radioShow.shortSummary {
-                            Text(shortSummary)
-                                .font(.title2)
-                                .foregroundStyle(.gray)
-                                .lineLimit(1)
-                        } else {
-                            Spacer()
-                                .frame(maxHeight: 43)
-                        }
-
-                        Image(radioShow.image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: contentWidth - RadioScreen.Metric.padding * 3,
-                                   height: height * 0.7)
-                            .clipShape(RoundedRectangle(cornerRadius: 6))
-
-                    }
-                    .frame(width: contentWidth - RadioScreen.Metric.padding * 3)
+                    AppContentView(
+                        title: radioShow.name,
+                        shortSummary: radioShow.shortSummary,
+                        tag: radioShow.tag.rawValue,
+                        image: radioShow.image,
+                        imageHeight: height * 0.67
+                    )
+                    .frame(maxWidth: contentWidth)
                 }
 
-                Color.clear.frame(width: RadioScreen.Metric.padding / 2)
-
+                // Trailing padding
+                Color.clear.frame(maxWidth: 0)
             }
             .padding(.leading, RadioScreen.Metric.padding)
-            .frame(height: height)
         }
     }
 }

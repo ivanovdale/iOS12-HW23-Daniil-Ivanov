@@ -20,9 +20,11 @@ struct RadioScreen: View {
                     Divider()
                         .padding(Metric.padding)
 
-                    RadioShowsView(height: geometry.size.height * 0.4,
-                                   contentWidth: geometry.size.width,
-                                   radioShows: radioShows)
+                    RadioShowsView(
+                        height: geometry.size.height * 0.42,
+                        contentWidth: geometry.size.width - RadioScreen.Metric.padding * 3,
+                        radioShows: radioShows
+                    )
 
                     Divider()
                         .padding([.horizontal, .top], Metric.padding)
