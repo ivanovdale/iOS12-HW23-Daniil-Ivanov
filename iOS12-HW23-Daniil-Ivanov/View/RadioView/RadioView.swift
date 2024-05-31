@@ -42,3 +42,6 @@ struct RadioView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}
