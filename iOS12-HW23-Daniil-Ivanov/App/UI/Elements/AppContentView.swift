@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-struct AppContentView: View {
-    let title: String
-    let shortSummary: String?
-    let tag: String
-    let image: ImageResource
+struct AppContentView<Content: AppContent>: View {
+    let content: Content
     let imageHeight: Double
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(tag)
+            Text(content.secondaryTitle)
                 .font(.subheadline)
                 .foregroundStyle(.gray)
 
-            Text(title)
+            Text(content.title)
                 .font(.title2)
 
-            if let shortSummary {
-                Text(shortSummary)
+            if let subtitle = content.subtitle {
+                Text(subtitle)
                     .font(.title2)
                     .foregroundStyle(.gray)
                     .lineLimit(1)
@@ -33,17 +30,27 @@ struct AppContentView: View {
                     .frame(height: 41)
             }
 
-            Image(image)
-                .resizable()
-                .scaledToFill()
-                .frame(height: imageHeight)
+            ZStack(alignment: .bottom) {
+                Image(content.image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: imageHeight)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
+                if let description = content.description {
+                    Text(description)
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(8)
+                }
+
+            }
         }
     }
 }
 
 #Preview {
-    AppContentView(title: "123", shortSummary: "123", tag: "123", image: .cover1, imageHeight: 300)
+    AppContentView(content: RadioShow.examples.first!, imageHeight: 300)
 }
 
 #Preview {

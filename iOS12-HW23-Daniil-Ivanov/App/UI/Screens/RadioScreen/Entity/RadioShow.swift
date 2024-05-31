@@ -15,6 +15,24 @@ struct RadioShow: Identifiable {
     let image: ImageResource
 }
 
+extension RadioShow: AppContent {
+    var title: String {
+        name
+    }
+    
+    var subtitle: String? {
+        shortSummary
+    }
+    
+    var secondaryTitle: String {
+        tag.rawValue
+    }
+
+    var description: String? {
+        nil
+    }
+}
+
 extension RadioShow {
     static let examples: [RadioShow] = [RadioShow(tag: .new,
                                                   name: "Музыкальное шоу с Вилли Вонкой",

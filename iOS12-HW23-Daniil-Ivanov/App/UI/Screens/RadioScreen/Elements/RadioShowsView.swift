@@ -13,24 +13,13 @@ struct RadioShowsView: View {
     let radioShows: [RadioShow]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: RadioScreen.Metric.padding) {
-                ForEach(radioShows) { radioShow in
-                    AppContentView(
-                        title: radioShow.name,
-                        shortSummary: radioShow.shortSummary,
-                        tag: radioShow.tag.rawValue,
-                        image: radioShow.image,
-                        imageHeight: height * 0.67
-                    )
-                    .frame(maxWidth: contentWidth)
-                }
-
-                // Trailing padding
-                Color.clear.frame(maxWidth: 0)
-            }
-            .padding(.leading, RadioScreen.Metric.padding)
-        }
+        AppContentListView(
+            height: height,
+            contentWidth: contentWidth,
+            content: radioShows,
+            spacing: nil,
+            leadingPadding: RadioScreen.Metric.padding
+        )
     }
 }
 
