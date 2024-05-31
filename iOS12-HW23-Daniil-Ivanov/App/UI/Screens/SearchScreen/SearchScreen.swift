@@ -7,25 +7,37 @@
 
 import SwiftUI
 
+enum SearchPath: Hashable {
+    case category(SearchCategory)
+}
+
 struct SearchScreen: View {
-    @State private var searchText = ""
-    @Environment(\.playerHeight) var playerHeight: Double
+    @State
+    private var searchText = ""
+
+    @Environment(\.playerHeight) 
+    var playerHeight: Double
+
     let categories = SearchCategory.examples
 
     var body: some View {
-        NavigationStack {
-            ScrollView(showsIndicators: false) {
-                Text("Поиск по категориям")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                
-                SearchCategoriesView(categories: categories)
+        ScrollView(showsIndicators: false) {
+            Text("Поиск по категориям")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title3)
+                .fontWeight(.bold)
 
-                Color.clear.frame(height: playerHeight)
+            SearchCategoriesView(categories: categories)
+
+            Color.clear.frame(height: playerHeight)
+        }
+        .navigationTitle("Поиск")
+        .padding(.horizontal, 16)
+        .navigationDestination(for: SearchPath.self) { path in
+            switch path {
+            case .category(let category):
+                CategoryScreen(category: category)
             }
-            .navigationTitle("Поиск")
-            .padding(.horizontal, 16)
         }
         .searchable(text: $searchText, prompt: "Ваша Медиатека")
     }
@@ -33,6 +45,7 @@ struct SearchScreen: View {
 
 private struct SearchCategoriesView: View {
     let categories: [SearchCategory]
+
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -51,19 +64,21 @@ private struct SearchCategoryItemView: View {
     let category: SearchCategory
 
     var body: some View {
-        ZStack(alignment: .leading) {
-            Image(category.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 110)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-            .clipped()
-            Text(category.name)
-                .font(.caption)
-                .fontWeight(.bold)
-                .foregroundStyle(.white)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding(10)
+        NavigationLink(value: SearchPath.category(category)) {
+            ZStack(alignment: .leading) {
+                Image(category.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 110)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipped()
+                Text(category.name)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .padding(10)
+            }
         }
     }
 }

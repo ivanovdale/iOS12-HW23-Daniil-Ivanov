@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchCategory: Identifiable {
+struct SearchCategory: Identifiable, Hashable {
     let id = UUID()
     let name: String
     let image: ImageResource
