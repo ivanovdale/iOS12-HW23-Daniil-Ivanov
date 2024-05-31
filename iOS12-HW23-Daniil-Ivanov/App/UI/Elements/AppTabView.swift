@@ -65,7 +65,7 @@ extension Tab {
         switch self {
         case .mediaLibrary: LibraryScreen()
         case .radio: RadioScreen()
-        case .search: Text(self.title)
+        case .search: SearchScreen()
         }
     }
 }
