@@ -7,11 +7,11 @@
 
 import Foundation
 
-extension Category: Identifiable {
+extension LibraryCategory: Identifiable {
     var id: Self { self }
 }
 
-extension Category: CustomStringConvertible {
+extension LibraryCategory: CustomStringConvertible {
     var description: String {
         switch (self) {
         case .playlists: return "Плейлисты"
@@ -29,7 +29,7 @@ extension Category: CustomStringConvertible {
     }
 }
 
-extension Category {
+extension LibraryCategory {
     var imageName: String {
         switch (self) {
         case .playlists: return "music.note.list"

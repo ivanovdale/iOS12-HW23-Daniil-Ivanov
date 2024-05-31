@@ -27,7 +27,7 @@ struct LibraryScreen: View {
                 }
                 .navigationTitle("Медиатека")
                 .toolbar {
-                    NavigationLink("Править", destination: CategoryListScreen())
+                    NavigationLink("Править", destination: LibraryCategoryListScreen())
                         .foregroundStyle(.red)
                 }
             }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Category: CaseIterable {
+enum LibraryCategory: CaseIterable {
     case playlists
     case artists
     case albums

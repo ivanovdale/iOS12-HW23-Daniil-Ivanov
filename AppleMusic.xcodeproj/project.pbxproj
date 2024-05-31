@@ -14,9 +14,9 @@
 		00AC07B82BEF9A8200C8EF16 /* LibraryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */; };
 		00AC07BC2BEF9B4100C8EF16 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */; };
 		00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */; };
-		00AC07C02BF11C5000C8EF16 /* CategoryListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BF2BF11C5000C8EF16 /* CategoryListScreen.swift */; };
-		00AC07C32BF125E100C8EF16 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C22BF125E100C8EF16 /* Category.swift */; };
-		00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */; };
+		00AC07C02BF11C5000C8EF16 /* LibraryCategoryListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07BF2BF11C5000C8EF16 /* LibraryCategoryListScreen.swift */; };
+		00AC07C32BF125E100C8EF16 /* LibraryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C22BF125E100C8EF16 /* LibraryCategory.swift */; };
+		00AC07C62BF126BD00C8EF16 /* LibraryCategory+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C52BF126BD00C8EF16 /* LibraryCategory+Ext.swift */; };
 		00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07C72BF14B4E00C8EF16 /* Song.swift */; };
 		00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07E62BF22C2800C8EF16 /* AlbumView.swift */; };
 		00AC07EA2BF22CD400C8EF16 /* RadioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07E92BF22CD400C8EF16 /* RadioScreen.swift */; };
@@ -36,9 +36,9 @@
 		00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreen.swift; sourceTree = "<group>"; };
 		00AC07BB2BEF9B4100C8EF16 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		00AC07BD2BEFB36A00C8EF16 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		00AC07BF2BF11C5000C8EF16 /* CategoryListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListScreen.swift; sourceTree = "<group>"; };
-		00AC07C22BF125E100C8EF16 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Ext.swift"; sourceTree = "<group>"; };
+		00AC07BF2BF11C5000C8EF16 /* LibraryCategoryListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCategoryListScreen.swift; sourceTree = "<group>"; };
+		00AC07C22BF125E100C8EF16 /* LibraryCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCategory.swift; sourceTree = "<group>"; };
+		00AC07C52BF126BD00C8EF16 /* LibraryCategory+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryCategory+Ext.swift"; sourceTree = "<group>"; };
 		00AC07C72BF14B4E00C8EF16 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		00AC07E62BF22C2800C8EF16 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		00AC07E92BF22CD400C8EF16 /* RadioScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioScreen.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */,
-				00AC07BF2BF11C5000C8EF16 /* CategoryListScreen.swift */,
+				005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */,
 				000962252C09CC7E009F38B2 /* RadioScreen */,
 			);
 			path = Screens;
@@ -121,6 +121,24 @@
 				00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				005E19CB2C09D72B00F316AC /* Entity */,
+				00AC07BF2BF11C5000C8EF16 /* LibraryCategoryListScreen.swift */,
+			);
+			path = LibraryCategoryListScreen;
+			sourceTree = "<group>";
+		};
+		005E19CB2C09D72B00F316AC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07C22BF125E100C8EF16 /* LibraryCategory.swift */,
+				00AC07C52BF126BD00C8EF16 /* LibraryCategory+Ext.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		00AC079D2BEF97B100C8EF16 = {
@@ -170,8 +188,6 @@
 		00AC07C12BF125D700C8EF16 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07C22BF125E100C8EF16 /* Category.swift */,
-				00AC07C52BF126BD00C8EF16 /* Category+Ext.swift */,
 				00AC07C72BF14B4E00C8EF16 /* Song.swift */,
 				00AC07F02BF2709C00C8EF16 /* RadioStation.swift */,
 				00AC07F22BF270B600C8EF16 /* RadioShow.swift */,
@@ -261,7 +277,7 @@
 			files = (
 				00AC07EA2BF22CD400C8EF16 /* RadioScreen.swift in Sources */,
 				00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */,
-				00AC07C02BF11C5000C8EF16 /* CategoryListScreen.swift in Sources */,
+				00AC07C02BF11C5000C8EF16 /* LibraryCategoryListScreen.swift in Sources */,
 				00AC07EF2BF26FFF00C8EF16 /* StationsView.swift in Sources */,
 				00AC07B82BEF9A8200C8EF16 /* LibraryScreen.swift in Sources */,
 				00AC07F32BF270B600C8EF16 /* RadioShow.swift in Sources */,
@@ -271,10 +287,10 @@
 				00AC07F12BF2709C00C8EF16 /* RadioStation.swift in Sources */,
 				00AC07BE2BEFB36A00C8EF16 /* PlayerView.swift in Sources */,
 				00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */,
-				00AC07C32BF125E100C8EF16 /* Category.swift in Sources */,
+				00AC07C32BF125E100C8EF16 /* LibraryCategory.swift in Sources */,
 				000962292C09CD39009F38B2 /* MainFlow.swift in Sources */,
 				00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */,
-				00AC07C62BF126BD00C8EF16 /* Category+Ext.swift in Sources */,
+				00AC07C62BF126BD00C8EF16 /* LibraryCategory+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

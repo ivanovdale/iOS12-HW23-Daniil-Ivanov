@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CategoryListScreen: View {
+struct LibraryCategoryListScreen: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var categories = Category.allCases
+    @State private var categories = LibraryCategory.allCases
     @State private var editMode: EditMode = .active
-    @State private var multiSelection = Set<Category>()
+    @State private var multiSelection = Set<LibraryCategory>()
 
     var body: some View {
         NavigationStack {
@@ -49,5 +49,5 @@ struct CategoryListScreen: View {
 }
 
 #Preview {
-    CategoryListScreen()
+    LibraryCategoryListScreen()
 }
