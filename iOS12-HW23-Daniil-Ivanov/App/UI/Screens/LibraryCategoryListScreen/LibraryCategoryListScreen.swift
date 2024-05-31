@@ -14,33 +14,37 @@ struct LibraryCategoryListScreen: View {
     @State private var multiSelection = Set<LibraryCategory>()
 
     var body: some View {
-        NavigationStack {
-            List(selection: $multiSelection) {
-                ForEach(categories, id: \.id) { category in
-                    HStack {
-                        Image(systemName: category.imageName)
-                            .foregroundStyle(.red)
-                            .frame(width: 30)
-                        Text(category.description)
-                    }
-                    .listRowSeparator(.visible, edges: .all)
+        List(selection: $multiSelection) {
+            ForEach(categories, id: \.id) { category in
+                HStack {
+                    Image(systemName: category.imageName)
+                        .foregroundStyle(.red)
+                        .frame(width: 30)
+                    Text(category.description)
                 }
-                .onMove(perform: move)
+                .listRowSeparator(.visible, edges: .all)
             }
-            .navigationTitle("Медиатека")
-            .toolbar {
-                Button("Готово") {
-                    dismiss()
-                }
-                .foregroundStyle(.red)
-                .fontWeight(.bold)
-            }
-            .listStyle(.grouped)
-            .scrollContentBackground(.hidden)
-            .environment(\.editMode, $editMode)
-            .tint(.red)
+            .onMove(perform: move)
         }
+        .navigationTitle("Медиатека")
+        .toolbar {
+            Button("Готово") {
+                dismiss()
+            }
+            .foregroundStyle(.red)
+            .fontWeight(.bold)
+        }
+        .listStyle(.grouped)
+        .scrollContentBackground(.hidden)
+        .environment(\.editMode, $editMode)
+        .tint(.red)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            UINavigationBar.setAnimationsEnabled(false)
+        }
+        .onDisappear {
+            UINavigationBar.setAnimationsEnabled(true)
+        }
     }
 
     private func move(from source: IndexSet, to destination: Int) {

@@ -7,28 +7,35 @@
 
 import SwiftUI
 
-struct LibraryScreen: View {
-    init(){
-        UINavigationBar.setAnimationsEnabled(false)
-    }
+enum LibraryPath: Hashable {
+    case libraryCategoryList
+}
 
+struct LibraryScreen: View {
     var body: some View {
-        GeometryReader { geometry in
-            NavigationStack {
-                VStack(alignment: .center) {
-                    Text("Ищете свою музыку?")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    Text("Здесь появится купленная Вами в iTunes Store музыка.")
-                        .font(.callout)
-                        .foregroundStyle(.gray)
-                        .padding(.horizontal, geometry.size.width * 0.1)
-                        .multilineTextAlignment(.center)
-                }
-                .navigationTitle("Медиатека")
-                .toolbar {
-                    NavigationLink("Править", destination: LibraryCategoryListScreen())
+        GeometryReader { proxy in
+            VStack {
+                Text("Ищете свою музыку?")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Text("Здесь появится купленная Вами в iTunes Store музыка.")
+                    .font(.callout)
+                    .foregroundStyle(.gray)
+                    .padding(.horizontal, 10)
+                    .multilineTextAlignment(.center)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .navigationTitle("Медиатека")
+            .toolbar {
+                NavigationLink(value: LibraryPath.libraryCategoryList) {
+                    Text("Править")
                         .foregroundStyle(.red)
+                }
+            }
+            .navigationDestination(for: LibraryPath.self) { path in
+                switch path {
+                case .libraryCategoryList:
+                    LibraryCategoryListScreen()
                 }
             }
         }
@@ -36,5 +43,7 @@ struct LibraryScreen: View {
 }
 
 #Preview {
-    LibraryScreen()
+    NavigationStack {
+        LibraryScreen()
+    }
 }

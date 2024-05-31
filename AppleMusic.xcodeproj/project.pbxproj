@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		000962292C09CD39009F38B2 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000962282C09CD39009F38B2 /* MainFlow.swift */; };
 		0009622B2C09CF46009F38B2 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0009622A2C09CF46009F38B2 /* SearchScreen.swift */; };
+		003AF4AB2C09FA6300103D87 /* LibraryFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */; };
 		005E19D22C09DB9100F316AC /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E19D12C09DB9100F316AC /* SearchCategory.swift */; };
 		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		000962282C09CD39009F38B2 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		0009622A2C09CF46009F38B2 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFlow.swift; sourceTree = "<group>"; };
 		005E19D12C09DB9100F316AC /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		00AC07A62BEF97B100C8EF16 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicApp.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				000962282C09CD39009F38B2 /* MainFlow.swift */,
+				003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */,
 				00AC07C02BF11C5000C8EF16 /* LibraryCategoryListScreen.swift in Sources */,
 				00AC07EF2BF26FFF00C8EF16 /* StationsView.swift in Sources */,
+				003AF4AB2C09FA6300103D87 /* LibraryFlow.swift in Sources */,
 				00AC07B82BEF9A8200C8EF16 /* LibraryScreen.swift in Sources */,
 				00AC07F32BF270B600C8EF16 /* RadioShow.swift in Sources */,
 				00AC07ED2BF26A9E00C8EF16 /* RadioShowsView.swift in Sources */,
