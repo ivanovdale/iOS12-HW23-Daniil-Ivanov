@@ -81,7 +81,7 @@
 		000962232C09CAED009F38B2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */,
+				005E19CE2C09D89E00F316AC /* LibraryScreen */,
 				005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */,
 				000962252C09CC7E009F38B2 /* RadioScreen */,
 			);
@@ -100,6 +100,7 @@
 		000962252C09CC7E009F38B2 /* RadioScreen */ = {
 			isa = PBXGroup;
 			children = (
+				005E19CD2C09D88200F316AC /* Entity */,
 				000962262C09CC85009F38B2 /* Elements */,
 				00AC07E92BF22CD400C8EF16 /* RadioScreen.swift */,
 			);
@@ -139,6 +140,24 @@
 				00AC07C52BF126BD00C8EF16 /* LibraryCategory+Ext.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		005E19CD2C09D88200F316AC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07F02BF2709C00C8EF16 /* RadioStation.swift */,
+				00AC07F22BF270B600C8EF16 /* RadioShow.swift */,
+				00AC07F42BF2714000C8EF16 /* RadioShowTag.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		005E19CE2C09D89E00F316AC /* LibraryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */,
+			);
+			path = LibraryScreen;
 			sourceTree = "<group>";
 		};
 		00AC079D2BEF97B100C8EF16 = {
@@ -189,9 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				00AC07C72BF14B4E00C8EF16 /* Song.swift */,
-				00AC07F02BF2709C00C8EF16 /* RadioStation.swift */,
-				00AC07F22BF270B600C8EF16 /* RadioShow.swift */,
-				00AC07F42BF2714000C8EF16 /* RadioShowTag.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
