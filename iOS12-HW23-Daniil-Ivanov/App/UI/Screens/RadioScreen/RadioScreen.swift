@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RadioScreen: View {
+    @Environment(\.playerHeight) var playerHeight: Double
+
     private let radioShows = RadioShow.examples
     private let radioStations = RadioStation.examples
 
@@ -29,7 +31,7 @@ struct RadioScreen: View {
                                  stations: radioStations)
                         .padding([.horizontal, .top], Metric.padding)
 
-                    Color.clear.frame(height: geometry.size.height * 0.15)
+                    Color.clear.frame(height: playerHeight)
                 }
                 .navigationTitle("Радио")
             }

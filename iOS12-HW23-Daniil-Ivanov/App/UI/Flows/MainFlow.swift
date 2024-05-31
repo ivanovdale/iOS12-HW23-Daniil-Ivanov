@@ -12,9 +12,9 @@ struct MainFlow: View {
         GeometryReader { geometry in
             AppTabView()
                 .safeAreaInset(edge: .bottom) {
-                    PlayerView(height: geometry.size.height * 0.1,
-                               offset: 49)
+                    PlayerView(offset: 49)
                 }
+                .playerHeight(geometry.size.height * 0.1)
         }
     }
 }

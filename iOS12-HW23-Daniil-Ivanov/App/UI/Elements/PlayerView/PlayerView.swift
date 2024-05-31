@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PlayerView: View {
-    let height: CGFloat
     let offset: CGFloat
+    @Environment(\.playerHeight) var height: Double
 
     @State private var song: Song? = Song.example
     @State private var isPlaying = false
@@ -62,6 +62,26 @@ struct PlayerView: View {
         .background(Color(UIColor.systemGray6))
         .frame(height: stackHeight)
         .offset(y: -offset)
+    }
+}
+
+// MARK: Environment extension
+
+private struct PlayerHeight: EnvironmentKey {
+    typealias Value = Double
+    static let defaultValue: Double = 50
+}
+
+extension EnvironmentValues {
+    var playerHeight: Double {
+        get { self[PlayerHeight.self] }
+        set { self[PlayerHeight.self] = newValue }
+    }
+}
+
+extension View {
+    func playerHeight(_ height: Double) -> some View {
+        environment(\.playerHeight, height)
     }
 }
 
