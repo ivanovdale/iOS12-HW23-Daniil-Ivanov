@@ -64,8 +64,8 @@ extension Tab {
     var content: some View {
         switch self {
         case .mediaLibrary: LibraryFlow()
-        case .radio: RadioScreen()
         case .search: SearchScreen()
+        case .radio: RadioFlow()
         }
     }
 }
