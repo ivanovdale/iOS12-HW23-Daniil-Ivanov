@@ -10,6 +10,7 @@
 		000962292C09CD39009F38B2 /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000962282C09CD39009F38B2 /* MainFlow.swift */; };
 		0009622B2C09CF46009F38B2 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0009622A2C09CF46009F38B2 /* SearchScreen.swift */; };
 		003AF4AB2C09FA6300103D87 /* LibraryFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */; };
+		003AF4AD2C09FD7000103D87 /* SearchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4AC2C09FD7000103D87 /* SearchFlow.swift */; };
 		003AF4AF2C09FD7C00103D87 /* RadioFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4AE2C09FD7C00103D87 /* RadioFlow.swift */; };
 		005E19D22C09DB9100F316AC /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E19D12C09DB9100F316AC /* SearchCategory.swift */; };
 		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
@@ -35,6 +36,7 @@
 		000962282C09CD39009F38B2 /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
 		0009622A2C09CF46009F38B2 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFlow.swift; sourceTree = "<group>"; };
+		003AF4AC2C09FD7000103D87 /* SearchFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlow.swift; sourceTree = "<group>"; };
 		003AF4AE2C09FD7C00103D87 /* RadioFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioFlow.swift; sourceTree = "<group>"; };
 		005E19D12C09DB9100F316AC /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		00AC07A62BEF97B100C8EF16 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				000962282C09CD39009F38B2 /* MainFlow.swift */,
 				003AF4AA2C09FA6300103D87 /* LibraryFlow.swift */,
 				003AF4AE2C09FD7C00103D87 /* RadioFlow.swift */,
+				003AF4AC2C09FD7000103D87 /* SearchFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003AF4AD2C09FD7000103D87 /* SearchFlow.swift in Sources */,
 				00AC07EA2BF22CD400C8EF16 /* RadioScreen.swift in Sources */,
 				00AC07C82BF14B4E00C8EF16 /* Song.swift in Sources */,
 				00AC07C02BF11C5000C8EF16 /* LibraryCategoryListScreen.swift in Sources */,
