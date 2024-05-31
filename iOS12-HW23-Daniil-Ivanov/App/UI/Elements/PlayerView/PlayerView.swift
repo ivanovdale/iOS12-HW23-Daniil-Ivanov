@@ -25,7 +25,7 @@ struct PlayerView: View {
         HStack(spacing: 0) {
             AlbumView(width: albumViewSize,
                       height: albumViewSize,
-                      imageName: song?.imageName)
+                      image: song?.image)
                 .padding(.horizontal, horizontalPadding)
                 .padding(.vertical, verticalPadding)
 

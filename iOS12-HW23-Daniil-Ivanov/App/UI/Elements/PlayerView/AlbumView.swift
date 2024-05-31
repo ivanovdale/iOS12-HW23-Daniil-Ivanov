@@ -10,15 +10,15 @@ import SwiftUI
 struct AlbumView: View {
     let width: CGFloat
     let height: CGFloat
-    let imageName: String?
+    let image: ImageResource?
 
     var body: some View {
         Group {
             let shadowColor = Color.gray.opacity(0.5)
 
-            if let imageName {
+            if let image {
                 // Album image
-                Image(imageName)
+                Image(image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: width, height: height)
