@@ -13,7 +13,7 @@ struct RadioScreen: View {
 
     var body: some View {
         GeometryReader { geometry in
-            NavigationView {
+            NavigationStack {
                 ScrollView(.vertical) {
                     Divider()
                         .padding(Metric.padding)

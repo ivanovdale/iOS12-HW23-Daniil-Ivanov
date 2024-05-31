@@ -14,7 +14,7 @@ struct LibraryScreen: View {
 
     var body: some View {
         GeometryReader { geometry in
-            NavigationView {
+            NavigationStack {
                 VStack(alignment: .center) {
                     Text("Ищете свою музыку?")
                         .font(.title3)

@@ -14,7 +14,7 @@ struct CategoryListScreen: View {
     @State private var multiSelection = Set<Category>()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(selection: $multiSelection) {
                 ForEach(categories, id: \.id) { category in
                     HStack {
