@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct MainFlow: View {
+    @State
+    private var playerParameters = PlayerParameters()
+
     var body: some View {
         GeometryReader { geometry in
             AppTabView()
                 .safeAreaInset(edge: .bottom) {
-                    PlayerView(offset: 49)
+                    PlayerView(offset: 48.5)
                 }
-                .playerHeight(geometry.size.height * 0.1)
+                .environment(playerParameters)
         }
     }
 }

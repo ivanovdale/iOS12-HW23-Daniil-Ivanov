@@ -17,8 +17,8 @@ struct CategoryScreen: View {
     @Environment(\.dismiss)
     var dismiss
 
-    @Environment(\.playerHeight)
-    var playerHeight: Double
+    @Environment(PlayerParameters.self)
+    var playerParameters
 
     @State
     var playlists: [Playlist] = []
@@ -74,7 +74,7 @@ struct CategoryScreen: View {
                         mode: .small
                     )
 
-                    Color.clear.frame(height: playerHeight)
+                    Color.clear.frame(height: playerParameters.height)
 
                 }
             }

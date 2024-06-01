@@ -15,8 +15,8 @@ struct SearchScreen: View {
     @State
     private var searchText = ""
 
-    @Environment(\.playerHeight) 
-    var playerHeight: Double
+    @Environment(PlayerParameters.self)
+    var playerParameters
 
     let categories = SearchCategory.examples
 
@@ -29,7 +29,7 @@ struct SearchScreen: View {
 
             SearchCategoriesView(categories: categories)
 
-            Color.clear.frame(height: playerHeight)
+            Color.clear.frame(height: playerParameters.height)
         }
         .navigationTitle("Поиск")
         .padding(.horizontal, 16)

@@ -9,25 +9,33 @@ import SwiftUI
 
 struct PlayerView: View {
     let offset: CGFloat
-    @Environment(\.playerHeight) var height: Double
 
-    @State private var song: Song? = Song.example
-    @State private var isPlaying = false
+    var stackHeight: Double {
+        parameters.height
+    }
+
+    @Environment(PlayerParameters.self)
+    var parameters
+
+    @State 
+    private var song: Song? = Song.example
+
+    @State
+    private var isPlaying = false
 
     var body: some View {
-        let stackHeight = height
-        let verticalPadding = 8.0
-        let horizontalPadding = 24.0
-        let albumViewSize = stackHeight - verticalPadding * 2 - 1
+        let albumViewSize = calculateAlbumViewSize()
         let controlHeight = stackHeight * 0.22
         let title = song?.description ?? "Не исполняется"
 
         HStack(spacing: 0) {
-            AlbumView(width: albumViewSize,
-                      height: albumViewSize,
-                      image: song?.image)
-                .padding(.horizontal, horizontalPadding)
-                .padding(.vertical, verticalPadding)
+            AlbumView(
+                width: albumViewSize,
+                height: albumViewSize,
+                image: song?.image
+            )
+            .padding(.horizontal, Metric.horizontalPadding)
+            .padding(.vertical, Metric.verticalPadding)
 
             Text(title)
                 .font(.callout)
@@ -62,27 +70,31 @@ struct PlayerView: View {
         .background(Color(UIColor.systemGray6))
         .frame(height: stackHeight)
         .offset(y: -offset)
+        .opacity(parameters.isHidden ? 0 : 1)
+    }
+
+    private func calculateAlbumViewSize() -> Double {
+        if stackHeight > 0 {
+            stackHeight - Metric.verticalPadding * 2 - 1
+        } else {
+            0
+        }
+    }
+
+    // MARK: - Constants
+
+    private enum Metric {
+        static let verticalPadding = 8.0
+        static let horizontalPadding = 24.0
     }
 }
 
 // MARK: Environment extension
 
-private struct PlayerHeight: EnvironmentKey {
-    typealias Value = Double
-    static let defaultValue: Double = 50
-}
-
-extension EnvironmentValues {
-    var playerHeight: Double {
-        get { self[PlayerHeight.self] }
-        set { self[PlayerHeight.self] = newValue }
-    }
-}
-
-extension View {
-    func playerHeight(_ height: Double) -> some View {
-        environment(\.playerHeight, height)
-    }
+@Observable
+class PlayerParameters {
+    let height = 55.0
+    var isHidden = false
 }
 
 #Preview {
