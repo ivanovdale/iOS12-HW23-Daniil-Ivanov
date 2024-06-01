@@ -92,7 +92,7 @@ struct PlayerView: View {
 // MARK: Environment extension
 
 @Observable
-class PlayerParameters {
+final class PlayerParameters {
     let height = 55.0
     var isHidden = false
 }

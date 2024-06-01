@@ -15,6 +15,8 @@ struct SearchScreen: View {
     @State
     private var searchText = ""
 
+    @State
+    private var isSearchInProgress = false
     @Environment(PlayerParameters.self)
     var playerParameters
 
@@ -39,7 +41,14 @@ struct SearchScreen: View {
                 CategoryScreen(category: category)
             }
         }
-        .searchable(text: $searchText, prompt: "Ваша Медиатека")
+        .searchable(
+            text: $searchText,
+            isPresented: $isSearchInProgress,
+            prompt: "Ваша Медиатека"
+        )
+        .onChange(of: isSearchInProgress) { oldValue, newValue in
+            playerParameters.isHidden = newValue
+        }
     }
 }
 
