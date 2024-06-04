@@ -12,6 +12,12 @@ enum SearchPath: Hashable {
 }
 
 struct SearchScreen: View {
+
+    private enum SearchScope {
+        case appleMusic
+        case media
+    }
+
     @State
     private var searchText = ""
 
@@ -21,6 +27,9 @@ struct SearchScreen: View {
 
     @State
     private var searchResults: [AnyAppContent] = []
+
+    @State 
+    private var scope: SearchScope = .appleMusic
     @Environment(PlayerParameters.self)
     private var playerParameters
 
@@ -44,6 +53,12 @@ struct SearchScreen: View {
             placement: .navigationBarDrawer,
             prompt: "Ваша Медиатека"
         )
+        .searchScopes($scope, activation: .onSearchPresentation) {
+            Text("Apple Music")
+                .tag(SearchScope.appleMusic)
+            Text("Ваша Медиатека")
+                .tag(SearchScope.media)
+        }
         .onChange(of: isSearchInProgress) { _, newValue in
             playerParameters.isHidden = newValue
             withAnimation(.easeIn(duration: 1).delay(0.1)) {
