@@ -231,12 +231,31 @@ private struct TextSearchResultsItemView: View {
     var body: some View {
         HStack(spacing: 7) {
             Image(systemName: "magnifyingglass")
+            HighlightedText(text: title, highlight: searchText)
         }
         .padding(.vertical, 16)
     }
 }
+
+private struct HighlightedText: View {
+    var text: String
+    var highlight: String
+
+    var body: some View {
+        let attributedString = NSMutableAttributedString(string: text)
+        if !highlight.isEmpty {
+            let range = (text as NSString).range(
+                of: highlight,
+                options: .caseInsensitive
+            )
+            attributedString.addAttribute(
+                .font,
+                value: UIFont.boldSystemFont(ofSize: 16),
+                range: range
+            )
         }
 
+        return Text(AttributedString(attributedString))
     }
 }
 
