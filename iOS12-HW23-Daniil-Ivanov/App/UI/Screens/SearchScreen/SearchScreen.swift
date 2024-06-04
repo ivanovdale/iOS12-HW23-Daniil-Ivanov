@@ -81,11 +81,16 @@ struct SearchScreen: View {
             loadContent()
         }
         .onChange(of: isSearchInProgress) { _, _ in
+            updateSearchState()
             searchInProgressHandler()
         }
         .onChange(of: searchText) { _, _ in
+            updateSearchState()
             prepareSearchText()
             updateSearchResults()
+        }
+        .onChange(of: searchHistory) { _, _ in
+            updateSearchState()
         }
         .navigationTitle("Поиск")
         .navigationDestination(for: SearchPath.self) { path in
@@ -98,33 +103,32 @@ struct SearchScreen: View {
 
     @ViewBuilder
     private func makeSearchView() -> some View {
-        if isSearchInProgress {
-            makeSearchResultsOrHistoryView()
-                .opacity(searchResultsOpacity)
-        } else {
+        switch searchState {
+        case .categories:
             SearchCategoriesView(categories: categories)
                 .opacity(searchCategoriesOpacity)
+        case .results, .history, .historyEmpty:
+            makeSearchResultsOrHistoryView()
+                .opacity(searchResultsOpacity)
         }
     }
 
     @ViewBuilder
     private func makeSearchResultsOrHistoryView() -> some View {
-        let isSeachHistoryShown = isSearchInProgress
-            && searchText.isEmpty && !searchHistory.isEmpty
-
-        if isSeachHistoryShown {
-        } else if isSearchInProgress {
+        switch searchState {
+        case .results:
             SearchResultsView(
                 searchResults: searchResults,
                 searchText: searchText,
                 onContentSearchResultTapped: onContentSearchResultTapped(content:),
                 onTextSearchResultTapped: onTextSearchResultTapped(title:)
             )
-        } else {
+        case .history:
             SearchHistoryView(
                 searchHistory: Array(searchHistory),
                 onClearButtonTapped: onSearchHistoryClearButtonTapped
             )
+        case .historyEmpty, .categories:
             EmptyView()
         }
     }
@@ -142,6 +146,19 @@ struct SearchScreen: View {
         let allAlbums = Album.examples.map { AnyAppContent($0) }
 
         allContentList = allPlaylists + allAlbums + allSongs
+    }
+
+    private func updateSearchState() {
+        guard isSearchInProgress else {
+            searchState = .categories
+            return
+        }
+
+        if searchText.isEmpty {
+            searchState = searchHistory.isEmpty ? .historyEmpty : .history
+        } else {
+            searchState = .results
+        }
     }
 
     private func searchInProgressHandler() {
