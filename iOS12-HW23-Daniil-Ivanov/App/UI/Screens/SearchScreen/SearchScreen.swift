@@ -27,6 +27,8 @@ struct SearchScreen: View {
     @State
     private var isSearchInProgress = false
 
+    @State
+    private var searchHistory: [AnyAppContent] = []
 
     @State
     private var searchResults: [AnyAppContent] = []
@@ -104,13 +106,32 @@ struct SearchScreen: View {
 
     @ViewBuilder
     private func makeSearchResultsOrHistoryView() -> some View {
+        let isSeachHistoryShown = isSearchInProgress
+            && searchText.isEmpty && !searchHistory.isEmpty
+
+        if isSeachHistoryShown {
+            SearchHistoryView(
+                searchHistory: searchHistory,
+                onClearButtonTapped: {
+                    searchHistory.removeAll()
+                }
+            )
+        } else if isSearchInProgress {
             SearchResultsView(
                 searchResults: searchResults,
                 searchText: searchText,
+                onContentSearchResultTapped: { content in
+                    searchHistory.append(content)
+                },
                 onTextSearchResultTapped: { title in
                     searchText = title
                 }
             )
+        } else {
+            EmptyView()
+        }
+    }
+
     private func loadContent() {
         let allSongs = (Playlist.examples
             .flatMap { $0.songs }
@@ -193,6 +214,7 @@ private struct SearchCategoryItemView: View {
 private struct SearchResultsView: View {
     let searchResults: [AnyAppContent]
     let searchText: String
+    let onContentSearchResultTapped: AnyAppContentClosure
     let onTextSearchResultTapped: StringClosure
 
     var body: some View {
@@ -204,6 +226,7 @@ private struct SearchResultsView: View {
             )
             ContentPreviewView(
                 content: searchResults,
+                onContentTapped: onContentSearchResultTapped
             )
         }
 
@@ -274,11 +297,15 @@ private struct HighlightedText: View {
 
 private struct ContentPreviewView: View {
     let content: [AnyAppContent]
+    let onContentTapped: AnyAppContentClosure
 
     var body: some View {
         LazyVStack(spacing: 0) {
             ForEach(content) { contentItem in
-                ContentPreviewItemView(contentItem: contentItem)
+                ContentPreviewItemView(
+                    contentItem: contentItem,
+                    onContentTapped: onContentTapped
+                )
                 Divider()
             }
         }
@@ -287,27 +314,34 @@ private struct ContentPreviewView: View {
 
 private struct ContentPreviewItemView: View {
     let contentItem: AnyAppContent
+    let onContentTapped: AnyAppContentClosure
     private static let dotSymbol = "·"
 
     var body: some View {
 
         HStack(spacing: 16) {
-            Image(contentItem.image)
-                .resizable()
-                .frame(width: 70, height: 70)
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 6))
-            VStack(alignment: .leading, spacing: 3) {
-                let subtitle = """
-                \(contentItem.type) \(Self.dotSymbol) \(contentItem.subtitle ?? "")
-                """
+            Button {
+                onContentTapped(contentItem)
+            } label: {
+                Image(contentItem.image)
+                    .resizable()
+                    .frame(width: 70, height: 70)
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                VStack(alignment: .leading, spacing: 3) {
+                    let subtitle = """
+                    \(contentItem.type) \(Self.dotSymbol) \(contentItem.subtitle ?? "")
+                    """
 
-                Text(contentItem.title)
-                Text(subtitle)
-                    .foregroundStyle(.gray)
+                    Text(contentItem.title)
+                    Text(subtitle)
+                        .foregroundStyle(.gray)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .lineLimit(1)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .lineLimit(1)
+            .foregroundStyle(Color(.label))
+
             if contentItem.isDownloaded {
                 Image(systemName: "arrow.down.circle.fill")
                     .foregroundStyle(.gray)
@@ -316,6 +350,31 @@ private struct ContentPreviewItemView: View {
                 .padding(.trailing, 8)
         }
         .padding(.vertical, 16)
+    }
+}
+
+private struct SearchHistoryView: View {
+    let searchHistory: [AnyAppContent]
+    let onClearButtonTapped: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                Text("Недавние поиски")
+                Spacer()
+                Button("Очистить", action: onClearButtonTapped)
+            }
+            .font(.callout)
+            .fontWeight(.semibold)
+            Divider()
+                .padding(.top, 8)
+            ContentPreviewView(
+                content: searchHistory,
+                // Open content
+                onContentTapped: { _ in }
+            )
+        }
+        .padding(.top, 16)
     }
 }
 
