@@ -56,14 +56,7 @@ struct SearchScreen: View {
         ScrollView(showsIndicators: false) {
             makeSearchView()
         }
-        .navigationTitle("Поиск")
         .padding(.horizontal, 16)
-        .navigationDestination(for: SearchPath.self) { path in
-            switch path {
-            case .category(let category):
-                CategoryScreen(category: category)
-            }
-        }
         .searchable(
             text: $searchText,
             isPresented: $isSearchInProgress,
@@ -85,8 +78,13 @@ struct SearchScreen: View {
             prepareSearchText()
             updateSearchResults()
         }
+        .navigationTitle("Поиск")
+        .navigationDestination(for: SearchPath.self) { path in
+            switch path {
+            case .category(let category):
+                CategoryScreen(category: category)
+            }
         }
-
     }
 
     @ViewBuilder
