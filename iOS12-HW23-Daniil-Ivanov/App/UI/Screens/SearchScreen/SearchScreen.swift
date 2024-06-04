@@ -17,9 +17,10 @@ enum SearchPath: Hashable {
 
 struct SearchScreen: View {
 
-    private enum SearchScope {
-        case appleMusic
-        case media
+    private enum SearchScope: String, CaseIterable {
+        case appleMusic = "Apple Music"
+        case media = "Ваша Медиатека"
+    }
     }
 
     @State
@@ -70,10 +71,6 @@ struct SearchScreen: View {
             prompt: "Ваша Медиатека"
         )
         .searchScopes($scope, activation: .onSearchPresentation) {
-            Text("Apple Music")
-                .tag(SearchScope.appleMusic)
-            Text("Ваша Медиатека")
-                .tag(SearchScope.media)
         }
         .onChange(of: isSearchInProgress) { _, newValue in
             playerParameters.isHidden = newValue
@@ -82,6 +79,8 @@ struct SearchScreen: View {
             }
             withAnimation() {
                 searchResultsOpacity = isSearchInProgress ? 1 : 0
+            ForEach(SearchScope.allCases, id: \.self) { scope in
+                Text(scope.rawValue).tag(scope)
             }
         }
         .onChange(of: searchText) { _, _ in
