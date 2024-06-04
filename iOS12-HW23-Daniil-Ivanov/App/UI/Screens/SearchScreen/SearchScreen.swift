@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+typealias AnyAppContentClosure = (AnyAppContent) -> Void
+typealias StringClosure = (String) -> Void
+
 enum SearchPath: Hashable {
     case category(SearchCategory)
 }
@@ -91,17 +94,23 @@ struct SearchScreen: View {
     @ViewBuilder
     private func makeSearchView() -> some View {
         if isSearchInProgress {
-            SearchResultsView(
-                searchResults: $searchResults,
-                searchText: $searchText
-            )
-            .opacity(searchResultsOpacity)
+            makeSearchResultsOrHistoryView()
+                .opacity(searchResultsOpacity)
         } else {
             SearchCategoriesView(categories: categories)
                 .opacity(searchCategoriesOpacity)
         }
     }
 
+    @ViewBuilder
+    private func makeSearchResultsOrHistoryView() -> some View {
+            SearchResultsView(
+                searchResults: searchResults,
+                searchText: searchText,
+                onTextSearchResultTapped: { title in
+                    searchText = title
+                }
+            )
     private func loadContent() {
         let allSongs = (Playlist.examples
             .flatMap { $0.songs }
@@ -182,30 +191,29 @@ private struct SearchCategoryItemView: View {
 }
 
 private struct SearchResultsView: View {
-    @Binding
-    var searchResults: [AnyAppContent]
-
-    @Binding
-    var searchText: String
+    let searchResults: [AnyAppContent]
+    let searchText: String
+    let onTextSearchResultTapped: StringClosure
 
     var body: some View {
         LazyVStack(spacing: 0) {
             TextSearchResultsView(
-                searchResults: $searchResults,
-                searchText: $searchText
+                searchResults: searchResults,
+                searchText: searchText, 
+                onSearchResultTapped: onTextSearchResultTapped
             )
-            ContentPreviewView(content: $searchResults)
+            ContentPreviewView(
+                content: searchResults,
+            )
         }
 
     }
 }
 
 private struct TextSearchResultsView: View {
-    @Binding
-    var searchResults: [AnyAppContent]
-
-    @Binding
-    var searchText: String
+    let searchResults: [AnyAppContent]
+    let searchText: String
+    let onSearchResultTapped: StringClosure
 
     var body: some View {
         let itemsCount = searchResults.count > 3 ? 3 : searchResults.count
@@ -214,7 +222,8 @@ private struct TextSearchResultsView: View {
                 let data = searchResults[index]
                 TextSearchResultsItemView(
                     title: data.title.lowercased(),
-                    searchText: $searchText
+                    searchText: searchText, 
+                    onItemTapped: onSearchResultTapped
                 )
                 Divider()
             }
@@ -224,13 +233,12 @@ private struct TextSearchResultsView: View {
 
 private struct TextSearchResultsItemView: View {
     let title: String
-
-    @Binding
-    var searchText: String
+    let searchText: String
+    let onItemTapped: StringClosure
 
     var body: some View {
         Button(action: {
-            searchText = title
+            onItemTapped(title)
         }, label: {
             HStack(spacing: 7) {
                 Image(systemName: "magnifyingglass")
@@ -243,8 +251,8 @@ private struct TextSearchResultsItemView: View {
 }
 
 private struct HighlightedText: View {
-    var text: String
-    var highlight: String
+    let text: String
+    let highlight: String
 
     var body: some View {
         let attributedString = NSMutableAttributedString(string: text)
@@ -265,8 +273,7 @@ private struct HighlightedText: View {
 }
 
 private struct ContentPreviewView: View {
-    @Binding
-    var content: [AnyAppContent]
+    let content: [AnyAppContent]
 
     var body: some View {
         LazyVStack(spacing: 0) {
@@ -330,8 +337,10 @@ struct SearchResultsViewContainer : View {
 
     var body: some View {
         SearchResultsView(
-            searchResults: $searchResults,
-            searchText: $searchText
+            searchResults: searchResults,
+            searchText: searchText,
+            onContentSearchResultTapped: { _ in }, 
+            onTextSearchResultTapped: { _ in }
         )
     }
 }
