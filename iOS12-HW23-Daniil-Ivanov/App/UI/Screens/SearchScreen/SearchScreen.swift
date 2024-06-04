@@ -78,6 +78,10 @@ struct SearchScreen: View {
                 searchResultsOpacity = isSearchInProgress ? 1 : 0
             }
         }
+        .onChange(of: searchText) { _, _ in
+            searchText = searchText.lowercased()
+            updateSearchResults()
+        }
         .onAppear {
             loadContent()
         }
@@ -111,6 +115,18 @@ struct SearchScreen: View {
         let allAlbums = Album.examples.map { AnyAppContent($0) }
 
         allContentList = allPlaylists + allAlbums + allSongs
+    }
+
+    private func updateSearchResults() {
+        if searchText.isEmpty {
+            searchResults.removeAll()
+        } else {
+            performSearch()
+        }
+    }
+
+    private func performSearch() {
+        searchResults = allContentList.filter { $0.title.lowercased().hasPrefix(searchText.lowercased()) }
     }
 }
 
