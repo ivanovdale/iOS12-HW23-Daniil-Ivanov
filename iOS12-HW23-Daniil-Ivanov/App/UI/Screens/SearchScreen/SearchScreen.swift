@@ -174,8 +174,101 @@ private struct SearchResultsView: View {
 
     var body: some View {
         LazyVStack(spacing: 0) {
+            TextSearchResultsView(
+                searchResults: $searchResults,
+                searchText: $searchText
+            )
+            ContentPreviewView(content: $searchResults)
         }
 
+    }
+}
+
+private struct TextSearchResultsView: View {
+    @Binding
+    var searchResults: [AnyAppContent]
+
+    @Binding
+    var searchText: String
+
+    var body: some View {
+        let itemsCount = searchResults.count > 3 ? 3 : searchResults.count
+        VStack(alignment: .leading,spacing: 0, content: {
+            ForEach(0..<itemsCount, id: \.self) { index in
+                let data = searchResults[index]
+                TextSearchResultsItemView(
+                    title: data.title.lowercased(),
+                    searchText: $searchText
+                )
+                Divider()
+            }
+        })
+    }
+}
+
+private struct TextSearchResultsItemView: View {
+    let title: String
+
+    @Binding
+    var searchText: String
+
+    var body: some View {
+        HStack(spacing: 7) {
+            Image(systemName: "magnifyingglass")
+        }
+        .padding(.vertical, 16)
+    }
+}
+        }
+
+    }
+}
+
+private struct ContentPreviewView: View {
+    @Binding
+    var content: [AnyAppContent]
+
+    var body: some View {
+        LazyVStack(spacing: 0) {
+            ForEach(content) { contentItem in
+                ContentPreviewItemView(contentItem: contentItem)
+                Divider()
+            }
+        }
+    }
+}
+
+private struct ContentPreviewItemView: View {
+    let contentItem: AnyAppContent
+    private static let dotSymbol = "·"
+
+    var body: some View {
+
+        HStack(spacing: 16) {
+            Image(contentItem.image)
+                .resizable()
+                .frame(width: 70, height: 70)
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+            VStack(alignment: .leading, spacing: 3) {
+                let subtitle = """
+                \(contentItem.type) \(Self.dotSymbol) \(contentItem.subtitle ?? "")
+                """
+
+                Text(contentItem.title)
+                Text(subtitle)
+                    .foregroundStyle(.gray)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .lineLimit(1)
+            if contentItem.isDownloaded {
+                Image(systemName: "arrow.down.circle.fill")
+                    .foregroundStyle(.gray)
+            }
+            Image(systemName: "ellipsis")
+                .padding(.trailing, 8)
+        }
+        .padding(.vertical, 16)
     }
 }
 #Preview {
