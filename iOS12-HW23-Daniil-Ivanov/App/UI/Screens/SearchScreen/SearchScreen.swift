@@ -306,11 +306,32 @@ private struct ContentPreviewItemView: View {
         .padding(.vertical, 16)
     }
 }
+
+// MARK: - DEBUG
+
+#Preview {
+    MainFlow()
+}
+
 #Preview {
     SearchScreen()
 }
 
+struct SearchResultsViewContainer : View {
+    @State
+    private var searchResults = Album.examples.flatMap { $0.songs }.map { AnyAppContent($0) }
+    @State
+    private var searchText: String = ""
+
+    var body: some View {
+        SearchResultsView(
+            searchResults: $searchResults,
+            searchText: $searchText
+        )
+    }
+}
+
 #Preview {
-    MainFlow()
+    SearchResultsViewContainer()
 }
 
