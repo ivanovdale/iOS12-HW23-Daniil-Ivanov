@@ -229,11 +229,16 @@ private struct TextSearchResultsItemView: View {
     var searchText: String
 
     var body: some View {
-        HStack(spacing: 7) {
-            Image(systemName: "magnifyingglass")
-            HighlightedText(text: title, highlight: searchText)
-        }
-        .padding(.vertical, 16)
+        Button(action: {
+            searchText = title
+        }, label: {
+            HStack(spacing: 7) {
+                Image(systemName: "magnifyingglass")
+                HighlightedText(text: title, highlight: searchText)
+            }
+            .padding(.vertical, 16)
+        })
+        .foregroundStyle(Color(.label))
     }
 }
 
