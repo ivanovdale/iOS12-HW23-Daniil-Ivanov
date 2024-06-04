@@ -71,24 +71,20 @@ struct SearchScreen: View {
             prompt: "Ваша Медиатека"
         )
         .searchScopes($scope, activation: .onSearchPresentation) {
-        }
-        .onChange(of: isSearchInProgress) { _, newValue in
-            playerParameters.isHidden = newValue
-            withAnimation(.easeIn(duration: 1).delay(0.1)) {
-                searchCategoriesOpacity = isSearchInProgress ? 0 : 1
-            }
-            withAnimation() {
-                searchResultsOpacity = isSearchInProgress ? 1 : 0
             ForEach(SearchScope.allCases, id: \.self) { scope in
                 Text(scope.rawValue).tag(scope)
             }
         }
-        .onChange(of: searchText) { _, _ in
-            searchText = searchText.lowercased()
-            updateSearchResults()
-        }
         .onAppear {
             loadContent()
+        }
+        .onChange(of: isSearchInProgress) { _, _ in
+            searchInProgressHandler()
+        }
+        .onChange(of: searchText) { _, _ in
+            prepareSearchText()
+            updateSearchResults()
+        }
         }
 
     }
@@ -110,24 +106,18 @@ struct SearchScreen: View {
             && searchText.isEmpty && !searchHistory.isEmpty
 
         if isSeachHistoryShown {
-            SearchHistoryView(
-                searchHistory: searchHistory,
-                onClearButtonTapped: {
-                    searchHistory.removeAll()
-                }
-            )
         } else if isSearchInProgress {
             SearchResultsView(
                 searchResults: searchResults,
                 searchText: searchText,
-                onContentSearchResultTapped: { content in
-                    searchHistory.append(content)
-                },
-                onTextSearchResultTapped: { title in
-                    searchText = title
-                }
+                onContentSearchResultTapped: onContentSearchResultTapped(content:),
+                onTextSearchResultTapped: onTextSearchResultTapped(title:)
             )
         } else {
+            SearchHistoryView(
+                searchHistory: Array(searchHistory),
+                onClearButtonTapped: onSearchHistoryClearButtonTapped
+            )
             EmptyView()
         }
     }
@@ -147,6 +137,20 @@ struct SearchScreen: View {
         allContentList = allPlaylists + allAlbums + allSongs
     }
 
+    private func searchInProgressHandler() {
+        playerParameters.isHidden = isSearchInProgress
+        withAnimation(.easeIn(duration: 1).delay(0.1)) {
+            searchCategoriesOpacity = isSearchInProgress ? 0 : 1
+        }
+        withAnimation() {
+            searchResultsOpacity = isSearchInProgress ? 1 : 0
+        }
+    }
+
+    private func prepareSearchText() {
+        searchText = searchText.lowercased()
+    }
+
     private func updateSearchResults() {
         if searchText.isEmpty {
             searchResults.removeAll()
@@ -157,6 +161,18 @@ struct SearchScreen: View {
 
     private func performSearch() {
         searchResults = allContentList.filter { $0.title.lowercased().hasPrefix(searchText.lowercased()) }
+    }
+
+    private func onContentSearchResultTapped(content: AnyAppContent) {
+        searchHistory.append(content)
+    }
+
+    private func onTextSearchResultTapped(title: String) {
+        searchText = title
+    }
+
+    private func onSearchHistoryClearButtonTapped() {
+        searchHistory.removeAll()
     }
 }
 
@@ -390,7 +406,11 @@ private struct SearchHistoryView: View {
 
 struct SearchResultsViewContainer : View {
     @State
-    private var searchResults = Album.examples.flatMap { $0.songs }.map { AnyAppContent($0) }
+    private var searchResults: [AnyAppContent] = {
+        let songs = Album.examples.flatMap { $0.songs }
+        return songs.map { AnyAppContent($0) }
+    }()
+
     @State
     private var searchText: String = ""
 
