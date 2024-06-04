@@ -45,9 +45,6 @@ struct SearchScreen: View {
     private var searchCategoriesOpacity = 1.0
 
     @State
-    private var searchResultsOpacity: Double = 0.0
-
-    @State
     private var searchState: SearchState = .categories
 
     @State 
@@ -55,6 +52,9 @@ struct SearchScreen: View {
 
     @State
     private var allContentList: [AnyAppContent] = []
+
+    @State
+    private var isClearSearchHistoryDialogPresented = false
 
     @Environment(PlayerParameters.self)
     private var playerParameters
@@ -92,11 +92,26 @@ struct SearchScreen: View {
         .onChange(of: searchHistory) { _, _ in
             updateSearchState()
         }
+        .onChange(of: isClearSearchHistoryDialogPresented) { _, _ in
+            updateSearchState()
+        }
         .navigationTitle("Поиск")
         .navigationDestination(for: SearchPath.self) { path in
             switch path {
             case .category(let category):
                 CategoryScreen(category: category)
+            }
+        }
+        .confirmationDialog(
+            "",
+            isPresented: $isClearSearchHistoryDialogPresented,
+            titleVisibility: .hidden
+        ) {
+            Button(role: .destructive) {
+                clearSearchHistory()
+                isClearSearchHistoryDialogPresented = false
+            } label: {
+                Text("Очистить недавние поиски")
             }
         }
     }
@@ -109,7 +124,6 @@ struct SearchScreen: View {
                 .opacity(searchCategoriesOpacity)
         case .results, .history, .historyEmpty:
             makeSearchResultsOrHistoryView()
-                .opacity(searchResultsOpacity)
         }
     }
 
@@ -149,7 +163,7 @@ struct SearchScreen: View {
     }
 
     private func updateSearchState() {
-        guard isSearchInProgress else {
+        guard isSearchInProgress || isClearSearchHistoryDialogPresented else {
             searchState = .categories
             return
         }
@@ -165,9 +179,6 @@ struct SearchScreen: View {
         playerParameters.isHidden = isSearchInProgress
         withAnimation(.easeIn(duration: 1).delay(0.1)) {
             searchCategoriesOpacity = isSearchInProgress ? 0 : 1
-        }
-        withAnimation() {
-            searchResultsOpacity = isSearchInProgress ? 1 : 0
         }
     }
 
@@ -196,6 +207,10 @@ struct SearchScreen: View {
     }
 
     private func onSearchHistoryClearButtonTapped() {
+        isClearSearchHistoryDialogPresented = true
+    }
+
+    private func clearSearchHistory() {
         searchHistory.removeAll()
     }
 }
