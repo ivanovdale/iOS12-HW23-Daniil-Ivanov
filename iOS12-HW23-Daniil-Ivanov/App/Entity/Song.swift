@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct Song {
+    let id = UUID()
     let title: String
     let singer: String
     let image: ImageResource
-}
+    let isDownloaded: Bool
 
-extension Song: CustomStringConvertible {
-    var description: String {
-        "\(singer) - \(title)"
+    init(
+        title: String,
+        singer: String,
+        image: ImageResource,
+        isDownloaded: Bool = false
+    ) {
+        self.title = title
+        self.singer = singer
+        self.image = image
+        self.isDownloaded = isDownloaded
     }
 }
 

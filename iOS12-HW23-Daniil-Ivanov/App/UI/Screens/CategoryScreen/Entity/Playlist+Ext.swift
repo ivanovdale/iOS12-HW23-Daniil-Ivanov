@@ -19,6 +19,10 @@ extension Playlist: AppContent {
     var secondaryTitle: String {
         "FEATURED PLAYLIST"
     }
+
+    var type: String {
+        "плейлист".capitalized
+    }
 }
 
 extension Playlist {

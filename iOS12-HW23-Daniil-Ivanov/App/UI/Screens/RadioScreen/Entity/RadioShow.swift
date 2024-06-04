@@ -13,6 +13,7 @@ struct RadioShow: Identifiable {
     let name: String
     let shortSummary: String?
     let image: ImageResource
+    let isDownloaded: Bool = false
 }
 
 extension RadioShow: AppContent {
@@ -30,6 +31,10 @@ extension RadioShow: AppContent {
 
     var description: String? {
         nil
+    }
+
+    var type: String {
+        "радиошоу"
     }
 }
 

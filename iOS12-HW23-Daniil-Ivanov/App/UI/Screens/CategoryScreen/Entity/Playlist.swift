@@ -14,4 +14,21 @@ struct Playlist: Identifiable {
     let image: ImageResource
     let categories: [SearchCategory]
     let songs: [Song]
+    let isDownloaded: Bool
+
+    init(
+        name: String,
+        description: String?,
+        image: ImageResource,
+        categories: [SearchCategory],
+        songs: [Song],
+        isDownloaded: Bool = false
+    ) {
+        self.name = name
+        self.description = description
+        self.image = image
+        self.categories = categories
+        self.songs = songs
+        self.isDownloaded = isDownloaded
+    }
 }

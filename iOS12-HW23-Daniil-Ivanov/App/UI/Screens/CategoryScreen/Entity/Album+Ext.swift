@@ -21,7 +21,11 @@ extension Album: AppContent {
     }
 
     var secondaryTitle: String {
-        "FEATURED ALBUM"
+        "избранный альбом".uppercased()
+    }
+
+    var type: String {
+        "альбом".capitalized
     }
 }
 
@@ -49,8 +53,8 @@ extension Album {
                 SearchCategory.examples[3]
             ],
             songs: [
-                Song(title: "Symphony No. 1", singer: "Renowned Composer", image: .cover3),
-                Song(title: "Concerto in D", singer: "Renowned Composer", image: .cover4)
+                Song(title: "Symphony No. 1", singer: "Renowned Composer", image: .cover3, isDownloaded: true),
+                Song(title: "Concerto in D", singer: "Renowned Composer", image: .cover4, isDownloaded: true)
             ]
         ),
         Album(
@@ -62,8 +66,8 @@ extension Album {
                 SearchCategory.examples[5]
             ],
             songs: [
-                Song(title: "Smooth Groove", singer: "Smooth Jazz Band", image: .cover5),
-                Song(title: "Late Night Blues", singer: "Smooth Jazz Band", image: .cover1)
+                Song(title: "Smooth Groove", singer: "Smooth Jazz Band", image: .cover5, isDownloaded: true),
+                Song(title: "Late Night Blues", singer: "Smooth Jazz Band", image: .cover1, isDownloaded: true)
             ]
         ),
         Album(
@@ -75,8 +79,8 @@ extension Album {
                 SearchCategory.examples[7]
             ],
             songs: [
-                Song(title: "Beat Drop", singer: "DJ Producer", image: .cover2),
-                Song(title: "Dance Floor", singer: "DJ Producer", image: .cover3)
+                Song(title: "Beat Drop", singer: "DJ Producer", image: .cover2, isDownloaded: true),
+                Song(title: "Dance Floor", singer: "DJ Producer", image: .cover3, isDownloaded: true)
             ]
         ),
         Album(

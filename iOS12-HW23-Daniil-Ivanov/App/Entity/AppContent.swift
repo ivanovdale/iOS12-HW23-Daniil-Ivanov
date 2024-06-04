@@ -14,4 +14,6 @@ protocol AppContent: Identifiable {
     var secondaryTitle: String { get }
     var description: String? { get }
     var image: ImageResource { get }
+    var type: String { get }
+    var isDownloaded: Bool { get }
 }

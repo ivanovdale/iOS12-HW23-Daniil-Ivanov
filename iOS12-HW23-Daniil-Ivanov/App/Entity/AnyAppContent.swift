@@ -14,6 +14,8 @@ struct AnyAppContent: AppContent {
     private let _secondaryTitle: () -> String
     private let _description: () -> String?
     private let _image: () -> ImageResource
+    private let _type: () -> String
+    private let _isDownloaded: () -> Bool
 
     var id: UUID { _id() }
     var title: String { _title() }
@@ -21,6 +23,8 @@ struct AnyAppContent: AppContent {
     var secondaryTitle: String { _secondaryTitle() }
     var description: String? { _description() }
     var image: ImageResource { _image() }
+    var type: String { _type() }
+    var isDownloaded: Bool { _isDownloaded() }
 
     init<C: AppContent>(_ content: C) {
         _id = { content.id }
@@ -29,5 +33,7 @@ struct AnyAppContent: AppContent {
         _secondaryTitle = { content.secondaryTitle }
         _description = { content.description }
         _image = { content.image }
+        _type = { content.type }
+        _isDownloaded = { content.isDownloaded }
     }
 }

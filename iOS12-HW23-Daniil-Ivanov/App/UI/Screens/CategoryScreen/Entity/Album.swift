@@ -14,4 +14,5 @@ struct Album: Identifiable {
     let image: ImageResource
     let categories: [SearchCategory]
     let songs: [Song]
+    let isDownloaded: Bool = false
 }
