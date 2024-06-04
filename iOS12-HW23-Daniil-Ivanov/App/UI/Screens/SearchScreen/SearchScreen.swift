@@ -21,6 +21,12 @@ struct SearchScreen: View {
         case appleMusic = "Apple Music"
         case media = "Ваша Медиатека"
     }
+
+    private enum SearchState {
+        case categories
+        case results
+        case historyEmpty
+        case history
     }
 
     @State
@@ -40,6 +46,9 @@ struct SearchScreen: View {
 
     @State
     private var searchResultsOpacity: Double = 0.0
+
+    @State
+    private var searchState: SearchState = .categories
 
     @State 
     private var scope: SearchScope = .appleMusic
