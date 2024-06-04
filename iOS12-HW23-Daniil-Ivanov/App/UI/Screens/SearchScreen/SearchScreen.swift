@@ -28,8 +28,18 @@ struct SearchScreen: View {
     @State
     private var searchResults: [AnyAppContent] = []
 
+    @State
+    private var searchCategoriesOpacity = 1.0
+
+    @State
+    private var searchResultsOpacity: Double = 0.0
+
     @State 
     private var scope: SearchScope = .appleMusic
+
+    @State
+    private var allContentList: [AnyAppContent] = []
+
     @Environment(PlayerParameters.self)
     private var playerParameters
 
@@ -68,6 +78,12 @@ struct SearchScreen: View {
                 searchResultsOpacity = isSearchInProgress ? 1 : 0
             }
         }
+        .onAppear {
+            loadContent()
+        }
+
+    }
+
     @ViewBuilder
     private func makeSearchView() -> some View {
         if isSearchInProgress {
@@ -80,6 +96,21 @@ struct SearchScreen: View {
             SearchCategoriesView(categories: categories)
                 .opacity(searchCategoriesOpacity)
         }
+    }
+
+    private func loadContent() {
+        let allSongs = (Playlist.examples
+            .flatMap { $0.songs }
+        + Album.examples
+            .flatMap { $0.songs }
+        + [Song.example])
+            .map { AnyAppContent($0) }
+
+        let allPlaylists = Playlist.examples.map { AnyAppContent($0) }
+
+        let allAlbums = Album.examples.map { AnyAppContent($0) }
+
+        allContentList = allPlaylists + allAlbums + allSongs
     }
 }
 
