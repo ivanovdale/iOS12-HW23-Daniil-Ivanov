@@ -36,4 +36,14 @@ struct AnyAppContent: AppContent {
         _type = { content.type }
         _isDownloaded = { content.isDownloaded }
     }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension AnyAppContent {
+    static func == (lhs: AnyAppContent, rhs: AnyAppContent) -> Bool {
+        lhs.id == rhs.id
+    }
 }

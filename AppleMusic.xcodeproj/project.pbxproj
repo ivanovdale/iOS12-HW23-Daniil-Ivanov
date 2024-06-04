@@ -23,6 +23,7 @@
 		003AF4C02C0A406700103D87 /* Album+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4BF2C0A406700103D87 /* Album+Ext.swift */; };
 		003AF4C22C0A5D5C00103D87 /* AppContentSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4C12C0A5D5C00103D87 /* AppContentSmallView.swift */; };
 		003AF4C42C0B876300103D87 /* Song+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4C32C0B876300103D87 /* Song+Ext.swift */; };
+		003AF4C72C0F256D00103D87 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 003AF4C62C0F256D00103D87 /* OrderedCollections */; };
 		005E19D22C09DB9100F316AC /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E19D12C09DB9100F316AC /* SearchCategory.swift */; };
 		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003AF4C72C0F256D00103D87 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +319,9 @@
 			dependencies = (
 			);
 			name = AppleMusic;
+			packageProductDependencies = (
+				003AF4C62C0F256D00103D87 /* OrderedCollections */,
+			);
 			productName = "iOS12-HW23-Daniil-Ivanov";
 			productReference = 00AC07A62BEF97B100C8EF16 /* AppleMusic.app */;
 			productType = "com.apple.product-type.application";
@@ -345,6 +350,9 @@
 				Base,
 			);
 			mainGroup = 00AC079D2BEF97B100C8EF16;
+			packageReferences = (
+				003AF4C52C0F256D00103D87 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 00AC07A72BEF97B100C8EF16 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -616,6 +624,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		003AF4C52C0F256D00103D87 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		003AF4C62C0F256D00103D87 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 003AF4C52C0F256D00103D87 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 00AC079E2BEF97B100C8EF16 /* Project object */;
 }

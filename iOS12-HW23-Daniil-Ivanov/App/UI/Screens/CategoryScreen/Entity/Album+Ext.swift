@@ -27,6 +27,14 @@ extension Album: AppContent {
     var type: String {
         "альбом".capitalized
     }
+
+    static func == (lhs: Album, rhs: Album) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension Album {

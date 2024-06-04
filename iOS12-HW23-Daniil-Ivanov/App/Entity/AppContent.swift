@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol AppContent: Identifiable {
+protocol AppContent: Identifiable, Equatable, Hashable {
     var id: UUID { get }
     var title: String { get }
     var subtitle: String? { get }

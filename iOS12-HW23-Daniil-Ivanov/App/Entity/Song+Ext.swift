@@ -23,4 +23,12 @@ extension Song: AppContent {
     var type: String {
         "песня".capitalized
     }
+
+    static func == (lhs: Song, rhs: Song) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

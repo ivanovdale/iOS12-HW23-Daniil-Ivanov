@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OrderedCollections
 
 typealias AnyAppContentClosure = (AnyAppContent) -> Void
 typealias StringClosure = (String) -> Void
@@ -28,7 +29,7 @@ struct SearchScreen: View {
     private var isSearchInProgress = false
 
     @State
-    private var searchHistory: [AnyAppContent] = []
+    private var searchHistory: OrderedSet<AnyAppContent> = []
 
     @State
     private var searchResults: [AnyAppContent] = []

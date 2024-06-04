@@ -23,6 +23,14 @@ extension Playlist: AppContent {
     var type: String {
         "плейлист".capitalized
     }
+
+    static func == (lhs: Playlist, rhs: Playlist) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension Playlist {
