@@ -102,16 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000962212C09CADC009F38B2 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				000962242C09CB07009F38B2 /* Elements */,
-				000962222C09CAE9009F38B2 /* Flows */,
-				000962232C09CAED009F38B2 /* Screens */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		000962222C09CAE9009F38B2 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +113,7 @@
 			path = Flows;
 			sourceTree = "<group>";
 		};
-		000962232C09CAED009F38B2 /* Screens */ = {
+		000962232C09CAED009F38B2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				005E19CE2C09D89E00F316AC /* LibraryScreen */,
@@ -132,7 +122,7 @@
 				005E19CF2C09D8A900F316AC /* SearchScreen */,
 				003AF4A72C09F08100103D87 /* CategoryScreen */,
 			);
-			path = Screens;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		000962242C09CB07009F38B2 /* Elements */ = {
@@ -150,9 +140,8 @@
 		000962252C09CC7E009F38B2 /* RadioScreen */ = {
 			isa = PBXGroup;
 			children = (
-				005E19CD2C09D88200F316AC /* Entity */,
-				000962262C09CC85009F38B2 /* Elements */,
-				00AC07E92BF22CD400C8EF16 /* RadioScreen.swift */,
+				003AF4D52C0F40B500103D87 /* Domain */,
+				003AF4D62C0F40BA00103D87 /* Presentation */,
 			);
 			path = RadioScreen;
 			sourceTree = "<group>";
@@ -177,8 +166,8 @@
 		003AF4A72C09F08100103D87 /* CategoryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				003AF4B02C0A13DD00103D87 /* Entity */,
-				003AF4A82C09F09800103D87 /* CategoryScreen.swift */,
+				003AF4D32C0F409A00103D87 /* Domain */,
+				003AF4D42C0F40A800103D87 /* Presentation */,
 			);
 			path = CategoryScreen;
 			sourceTree = "<group>";
@@ -205,11 +194,111 @@
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */ = {
+		003AF4D12C0F402C00103D87 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				005E19D02C09DB4F00F316AC /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		003AF4D22C0F404F00103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4C82C0F340200103D87 /* Elements */,
+				0009622A2C09CF46009F38B2 /* SearchScreen.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4D32C0F409A00103D87 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4B02C0A13DD00103D87 /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		003AF4D42C0F40A800103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4A82C09F09800103D87 /* CategoryScreen.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4D52C0F40B500103D87 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				005E19CD2C09D88200F316AC /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		003AF4D62C0F40BA00103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				000962262C09CC85009F38B2 /* Elements */,
+				00AC07E92BF22CD400C8EF16 /* RadioScreen.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4D72C0F40CB00103D87 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				005E19CB2C09D72B00F316AC /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		003AF4D82C0F40D100103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
 				00AC07BF2BF11C5000C8EF16 /* LibraryCategoryListScreen.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4D92C0F476900103D87 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4DA2C0F478200103D87 /* Domain */,
+				003AF4DD2C0F47C900103D87 /* Presentation */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		003AF4DA2C0F478200103D87 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07C12BF125D700C8EF16 /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		003AF4DB2C0F479100103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4DD2C0F47C900103D87 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				000962222C09CAE9009F38B2 /* Flows */,
+				000962242C09CB07009F38B2 /* Elements */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4D72C0F40CB00103D87 /* Domain */,
+				003AF4D82C0F40D100103D87 /* Presentation */,
 			);
 			path = LibraryCategoryListScreen;
 			sourceTree = "<group>";
@@ -236,7 +325,7 @@
 		005E19CE2C09D89E00F316AC /* LibraryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				00AC07B72BEF9A8200C8EF16 /* LibraryScreen.swift */,
+				003AF4DB2C0F479100103D87 /* Presentation */,
 			);
 			path = LibraryScreen;
 			sourceTree = "<group>";
@@ -244,9 +333,8 @@
 		005E19CF2C09D8A900F316AC /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				005E19D02C09DB4F00F316AC /* Entity */,
-				003AF4C82C0F340200103D87 /* Elements */,
-				0009622A2C09CF46009F38B2 /* SearchScreen.swift */,
+				003AF4D12C0F402C00103D87 /* Domain */,
+				003AF4D22C0F404F00103D87 /* Presentation */,
 			);
 			path = SearchScreen;
 			sourceTree = "<group>";
@@ -279,6 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				00AC07B92BEF9B0E00C8EF16 /* App */,
+				003AF4D92C0F476900103D87 /* Core */,
+				000962232C09CAED009F38B2 /* Features */,
 				000962272C09CCDE009F38B2 /* Resources */,
 				00AC07AF2BEF97B200C8EF16 /* Preview Content */,
 			);
@@ -297,8 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */,
-				00AC07C12BF125D700C8EF16 /* Entity */,
-				000962212C09CADC009F38B2 /* UI */,
 			);
 			path = App;
 			sourceTree = "<group>";
