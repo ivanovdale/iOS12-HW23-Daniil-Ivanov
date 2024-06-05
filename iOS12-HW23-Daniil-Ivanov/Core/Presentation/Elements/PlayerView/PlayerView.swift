@@ -23,23 +23,33 @@ struct PlayerView: View {
     @State
     private var isPlaying = false
 
+    @State
+    private var isExpandedViewPresented = false
+
     var body: some View {
         let albumViewSize = calculateAlbumViewSize()
         let controlHeight = stackHeight * 0.22
         let title = song?.description ?? "Не исполняется"
 
         HStack(spacing: 0) {
-            AlbumView(
-                width: albumViewSize,
-                height: albumViewSize,
-                image: song?.image
-            )
-            .padding(.horizontal, Metric.horizontalPadding)
-            .padding(.vertical, Metric.verticalPadding)
+            Button(action: {
+                isExpandedViewPresented = true
+            }, label: {
+                HStack(spacing: 0)  {
+                    AlbumView(
+                        width: albumViewSize,
+                        height: albumViewSize,
+                        image: song?.image
+                    )
+                    .padding(.horizontal, Metric.horizontalPadding)
+                    .padding(.vertical, Metric.verticalPadding)
 
-            Text(title)
-                .font(.callout)
-                .fontWeight(.light)
+                    Text(title)
+                        .font(.callout)
+                        .foregroundStyle(Color(.label))
+                        .fontWeight(.light)
+                }
+            })
 
             Spacer()
 
@@ -71,6 +81,20 @@ struct PlayerView: View {
         .frame(height: stackHeight)
         .offset(y: -offset)
         .opacity(parameters.isHidden ? 0 : 1)
+        .disabled(song == nil)
+        .sheet(isPresented: $isExpandedViewPresented) {
+            makeExpandedView()
+        }
+    }
+
+    @ViewBuilder
+    private func makeExpandedView() -> some View {
+        if let song {
+            PlayerExpandedView(song: song)
+                .presentationDragIndicator(.visible)
+        } else {
+            EmptyView()
+        }
     }
 
     private func calculateAlbumViewSize() -> Double {
