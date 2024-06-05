@@ -8,56 +8,16 @@
 import SwiftUI
 import OrderedCollections
 
-typealias AnyAppContentClosure = (AnyAppContent) -> Void
-typealias StringClosure = (String) -> Void
-
 enum SearchPath: Hashable {
     case category(SearchCategory)
 }
 
 struct SearchScreen: View {
-
-    private enum SearchScope: String, CaseIterable {
-        case appleMusic = "Apple Music"
-        case media = "Ваша Медиатека"
-    }
-
-    private enum SearchState {
-        case categories
-        case results
-        case historyEmpty
-        case history
-    }
-
-    @State
-    private var searchText = ""
-
-    @State
-    private var isSearchInProgress = false
-
-    @State
-    private var searchHistory: OrderedSet<AnyAppContent> = []
-
-    @State
-    private var searchResults: [AnyAppContent] = []
-
-    @State
-    private var searchCategoriesOpacity = 1.0
-
-    @State
-    private var searchState: SearchState = .categories
-
-    @State 
-    private var scope: SearchScope = .appleMusic
-
-    @State
-    private var allContentList: [AnyAppContent] = []
-
-    @State
-    private var isClearSearchHistoryDialogPresented = false
-
     @Environment(PlayerParameters.self)
     private var playerParameters
+
+    @State
+    private var viewModel = SearchViewModel()
 
     let categories = SearchCategory.examples
 
@@ -67,33 +27,34 @@ struct SearchScreen: View {
         }
         .padding(.horizontal, 16)
         .searchable(
-            text: $searchText,
-            isPresented: $isSearchInProgress,
+            text: $viewModel.searchText,
+            isPresented: $viewModel.isSearchInProgress,
             placement: .navigationBarDrawer,
             prompt: "Ваша Медиатека"
         )
-        .searchScopes($scope, activation: .onSearchPresentation) {
-            ForEach(SearchScope.allCases, id: \.self) { scope in
+        .searchScopes($viewModel.scope, activation: .onSearchPresentation) {
+            ForEach(SearchViewModel.SearchScope.allCases, id: \.self) { scope in
                 Text(scope.rawValue).tag(scope)
             }
         }
         .onAppear {
-            loadContent()
+            viewModel.setupPlayerParameters(playerParameters)
+            viewModel.loadContent()
         }
-        .onChange(of: isSearchInProgress) { _, _ in
-            updateSearchState()
-            searchInProgressHandler()
+        .onChange(of: viewModel.isSearchInProgress) { _, _ in
+            viewModel.updateSearchState()
+            viewModel.searchInProgressHandler()
         }
-        .onChange(of: searchText) { _, _ in
-            updateSearchState()
-            prepareSearchText()
-            updateSearchResults()
+        .onChange(of: viewModel.searchText) { _, _ in
+            viewModel.updateSearchState()
+            viewModel.prepareSearchText()
+            viewModel.updateSearchResults()
         }
-        .onChange(of: searchHistory) { _, _ in
-            updateSearchState()
+        .onChange(of: viewModel.searchHistory) { _, _ in
+            viewModel.updateSearchState()
         }
-        .onChange(of: isClearSearchHistoryDialogPresented) { _, _ in
-            updateSearchState()
+        .onChange(of: viewModel.isClearSearchHistoryDialogPresented) { _, _ in
+            viewModel.updateSearchState()
         }
         .navigationTitle("Поиск")
         .navigationDestination(for: SearchPath.self) { path in
@@ -104,12 +65,12 @@ struct SearchScreen: View {
         }
         .confirmationDialog(
             "",
-            isPresented: $isClearSearchHistoryDialogPresented,
+            isPresented: $viewModel.isClearSearchHistoryDialogPresented,
             titleVisibility: .hidden
         ) {
             Button(role: .destructive) {
-                clearSearchHistory()
-                isClearSearchHistoryDialogPresented = false
+                viewModel.clearSearchHistory()
+                viewModel.isClearSearchHistoryDialogPresented = false
             } label: {
                 Text("Очистить недавние поиски")
             }
@@ -118,10 +79,10 @@ struct SearchScreen: View {
 
     @ViewBuilder
     private func makeSearchView() -> some View {
-        switch searchState {
+        switch viewModel.searchState {
         case .categories:
             SearchCategoriesView(categories: categories)
-                .opacity(searchCategoriesOpacity)
+                .opacity(viewModel.searchCategoriesOpacity)
         case .results, .history, .historyEmpty:
             makeSearchResultsOrHistoryView()
         }
@@ -129,89 +90,22 @@ struct SearchScreen: View {
 
     @ViewBuilder
     private func makeSearchResultsOrHistoryView() -> some View {
-        switch searchState {
+        switch viewModel.searchState {
         case .results:
             SearchResultsView(
-                searchResults: searchResults,
-                searchText: searchText,
-                onContentSearchResultTapped: onContentSearchResultTapped(content:),
-                onTextSearchResultTapped: onTextSearchResultTapped(title:)
+                searchResults: viewModel.searchResults,
+                searchText: viewModel.searchText,
+                onContentSearchResultTapped: viewModel.onContentSearchResultTapped(content:),
+                onTextSearchResultTapped: viewModel.onTextSearchResultTapped(title:)
             )
         case .history:
             SearchHistoryView(
-                searchHistory: Array(searchHistory),
-                onClearButtonTapped: onSearchHistoryClearButtonTapped
+                searchHistory: Array(viewModel.searchHistory),
+                onClearButtonTapped: viewModel.onSearchHistoryClearButtonTapped
             )
         case .historyEmpty, .categories:
             EmptyView()
         }
-    }
-
-    private func loadContent() {
-        let allSongs = (Playlist.examples
-            .flatMap { $0.songs }
-        + Album.examples
-            .flatMap { $0.songs }
-        + [Song.example])
-            .map { AnyAppContent($0) }
-
-        let allPlaylists = Playlist.examples.map { AnyAppContent($0) }
-
-        let allAlbums = Album.examples.map { AnyAppContent($0) }
-
-        allContentList = allPlaylists + allAlbums + allSongs
-    }
-
-    private func updateSearchState() {
-        guard isSearchInProgress || isClearSearchHistoryDialogPresented else {
-            searchState = .categories
-            return
-        }
-
-        if searchText.isEmpty {
-            searchState = searchHistory.isEmpty ? .historyEmpty : .history
-        } else {
-            searchState = .results
-        }
-    }
-
-    private func searchInProgressHandler() {
-        playerParameters.isHidden = isSearchInProgress
-        withAnimation(.easeIn(duration: 1).delay(0.1)) {
-            searchCategoriesOpacity = isSearchInProgress ? 0 : 1
-        }
-    }
-
-    private func prepareSearchText() {
-        searchText = searchText.lowercased()
-    }
-
-    private func updateSearchResults() {
-        if searchText.isEmpty {
-            searchResults.removeAll()
-        } else {
-            performSearch()
-        }
-    }
-
-    private func performSearch() {
-        searchResults = allContentList.filter { $0.title.lowercased().hasPrefix(searchText.lowercased()) }
-    }
-
-    private func onContentSearchResultTapped(content: AnyAppContent) {
-        searchHistory.append(content)
-    }
-
-    private func onTextSearchResultTapped(title: String) {
-        searchText = title
-    }
-
-    private func onSearchHistoryClearButtonTapped() {
-        isClearSearchHistoryDialogPresented = true
-    }
-
-    private func clearSearchHistory() {
-        searchHistory.removeAll()
     }
 }
 
