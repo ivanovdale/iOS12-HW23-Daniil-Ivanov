@@ -17,7 +17,7 @@ struct SearchScreen: View {
     private var playerParameters
 
     @State
-    private var viewModel = SearchViewModel(searchInteractor: SearchInteractor())
+    private var viewModel = SearchViewModel(searchInteractor: SearchInteractor(fetchContentInteractor: FetchContentInteractor(contentRepository: ContentRepositoryImpl(dataSource: MockDataSource()))))
 
     let categories = SearchCategory.examples
 

@@ -34,7 +34,6 @@ final class SearchViewModel {
     private (set) var searchResults: [AnyAppContent] = []
     private (set) var searchCategoriesOpacity = 1.0
     private (set) var searchState: SearchState = .categories
-    private (set) var allContentList: [AnyAppContent] = []
 
     private (set) var playerParameters: PlayerParameters?
 
@@ -49,10 +48,7 @@ final class SearchViewModel {
     }
 
     func loadContent() async {
-        let allContent = await searchInteractor.fetchContent()
-        DispatchQueue.main.async {
-            self.allContentList = allContent
-        }
+        await searchInteractor.loadContent()
     }
 
     func updateSearchState() {
