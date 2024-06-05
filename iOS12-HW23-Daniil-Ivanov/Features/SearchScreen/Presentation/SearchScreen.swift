@@ -17,7 +17,7 @@ struct SearchScreen: View {
     private var playerParameters
 
     @State
-    private var viewModel = SearchViewModel()
+    private var viewModel = SearchViewModel(searchInteractor: SearchInteractor())
 
     let categories = SearchCategory.examples
 
@@ -37,9 +37,11 @@ struct SearchScreen: View {
                 Text(scope.rawValue).tag(scope)
             }
         }
+        .task {
+            await viewModel.loadContent()
+        }
         .onAppear {
             viewModel.setupPlayerParameters(playerParameters)
-            viewModel.loadContent()
         }
         .onChange(of: viewModel.isSearchInProgress) { _, _ in
             viewModel.updateSearchState()

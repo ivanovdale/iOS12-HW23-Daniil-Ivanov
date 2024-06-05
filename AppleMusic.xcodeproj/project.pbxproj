@@ -29,6 +29,7 @@
 		003AF4CE2C0F34C000103D87 /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4CD2C0F34C000103D87 /* ContentPreviewView.swift */; };
 		003AF4D02C0F351F00103D87 /* SearchHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4CF2C0F351F00103D87 /* SearchHistoryView.swift */; };
 		003AF4E02C105B6100103D87 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4DF2C105B6100103D87 /* SearchViewModel.swift */; };
+		003AF4E32C1066E700103D87 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF4E22C1066E700103D87 /* SearchUseCase.swift */; };
 		005E19D22C09DB9100F316AC /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E19D12C09DB9100F316AC /* SearchCategory.swift */; };
 		00AC07AA2BEF97B100C8EF16 /* AppleMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */; };
 		00AC07AE2BEF97B200C8EF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AC07AD2BEF97B200C8EF16 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		003AF4CD2C0F34C000103D87 /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		003AF4CF2C0F351F00103D87 /* SearchHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryView.swift; sourceTree = "<group>"; };
 		003AF4DF2C105B6100103D87 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		003AF4E22C1066E700103D87 /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
 		005E19D12C09DB9100F316AC /* SearchCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		00AC07A62BEF97B100C8EF16 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AC07A92BEF97B100C8EF16 /* AppleMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicApp.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				005E19D02C09DB4F00F316AC /* Entity */,
+				003AF4E12C1066D300103D87 /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -295,6 +298,14 @@
 				000962242C09CB07009F38B2 /* Elements */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		003AF4E12C1066D300103D87 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				003AF4E22C1066E700103D87 /* SearchUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		005E19CA2C09D72100F316AC /* LibraryCategoryListScreen */ = {
@@ -527,6 +538,7 @@
 				003AF4AF2C09FD7C00103D87 /* RadioFlow.swift in Sources */,
 				00AC07E72BF22C2800C8EF16 /* AlbumView.swift in Sources */,
 				00AC07C62BF126BD00C8EF16 /* LibraryCategory+Ext.swift in Sources */,
+				003AF4E32C1066E700103D87 /* SearchUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

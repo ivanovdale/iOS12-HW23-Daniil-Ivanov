@@ -38,15 +38,21 @@ final class SearchViewModel {
 
     private (set) var playerParameters: PlayerParameters?
 
+    private let searchInteractor: SearchUseCase
+
+    init(searchInteractor: SearchUseCase) {
+        self.searchInteractor = searchInteractor
+    }
+
     func setupPlayerParameters(_ parameters: PlayerParameters) {
         playerParameters = parameters
     }
 
-    func loadContent() {
-        let allSongs = (Playlist.examples.flatMap { $0.songs } + Album.examples.flatMap { $0.songs } + [Song.example]).map { AnyAppContent($0) }
-        let allPlaylists = Playlist.examples.map { AnyAppContent($0) }
-        let allAlbums = Album.examples.map { AnyAppContent($0) }
-        allContentList = allPlaylists + allAlbums + allSongs
+    func loadContent() async {
+        let allContent = await searchInteractor.fetchContent()
+        DispatchQueue.main.async {
+            self.allContentList = allContent
+        }
     }
 
     func updateSearchState() {
@@ -77,12 +83,18 @@ final class SearchViewModel {
         if searchText.isEmpty {
             searchResults.removeAll()
         } else {
-            performSearch()
+            Task {
+                await performSearch()
+            }
+
         }
     }
 
-    private func performSearch() {
-        searchResults = allContentList.filter { $0.title.lowercased().hasPrefix(searchText.lowercased()) }
+    private func performSearch() async {
+        let searchResults = await searchInteractor.searchContent(query: searchText.lowercased())
+        DispatchQueue.main.async {
+            self.searchResults = searchResults
+        }
     }
 
     func onContentSearchResultTapped(content: AnyAppContent) {
